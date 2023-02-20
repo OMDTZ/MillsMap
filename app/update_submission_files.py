@@ -165,6 +165,8 @@ def fetch_odk_submissions(form_index, base_url: str, aut: object, projectId: str
         start_time = time.perf_counter()
         submissions_response = odata_submissions(base_url, aut, projectId, formId, table)
         mill_fetch_time = time.perf_counter()
+        print('Submission reponse is')
+        print(submissions_response.json())
         submissions = submissions_response.json()['value']
         flatsubs = [flatten_dict(sub) for sub in submissions]
         print(f'Fetched table {table} for the form {formId} in {mill_fetch_time - start_time}s')
