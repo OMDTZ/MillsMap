@@ -24,18 +24,18 @@ def read_local_tables_together(folder):
         with open(table_path, newline='') as data_file:
             csv_file = csv.DictReader(data_file)
             for row in csv_file:
-                row['non_operational'] = row['non_operational'].split(' ')
-                row['energy_source'] = row['energy_source'].split(' ')
-                row['commodity_milled'] = row['commodity_milled'].split(' ')
-                row['Location_addr_region'] = row['Location_addr_region']
-                row['Location_addr_district'] = row['Location_addr_district']
-                for column in array_columns:
-                    row[column] = [item.capitalize().replace('_', ' ') for item in row[column]]
-                for column in single_columns:
-                        row[column] = row[column].capitalize().replace('_', ' ')
+                # row['non_operational'] = row['non_operational'].split(' ')
+                # row['energy_source'] = row['energy_source'].split(' ')
+                # row['commodity_milled'] = row['commodity_milled'].split(' ')
+                # row['Location_addr_region'] = row['Location_addr_region']
+                # row['Location_addr_district'] = row['Location_addr_district']
+                # for column in array_columns:
+                #     row[column] = [item.capitalize().replace('_', ' ') for item in row[column]]
+                # for column in single_columns:
+                #         row[column] = row[column].capitalize().replace('_', ' ')
                 try:
                     # transform the coordinates from a string to a list
-                    row['Location_mill_gps_coordinates'] = row['Location_mill_gps_coordinates'][1:-1].split(',')
+                    row['coordinatesDescription_coodinates_coordinates'] = row['coordinatesDescription_coodinates_coordinates'][1:-1].split(',')
                 except:
                     next
                 file.append(row)
@@ -73,7 +73,7 @@ def check_new_submissions_odk():
                 # new_sub_ids = get_new_sub_ids(table='Submissions', formId=formId, odk_details_column='instanceId',
                 #                               local_column='__id')
                 # Retrieve the missing submissions by fetching the form
-                table = fetch_odk_submissions(base_url, aut, projectId, formId)
+                table = fetch_odk_submissions(form_index, base_url, aut, projectId, formId)
                 # Update the figures:                update_attachments_from_form(table, figures_path, base_url, aut, projectId, formId)
 
                 # fetch_odk_csv(base_url, aut, projectId, formId, table='Submissions', sort_column = '__id')
@@ -158,10 +158,10 @@ def fetch_odk_submissions(form_index, base_url: str, aut: object, projectId: str
     Get all the data from the ODK server, merge them together and save them as a csv file
     """
     # Fetch the data
-    tables_list = ['Submissions', 'Submissions.machines.machine']
+    tables_list = ['Submissions']
     tables_data = []
     start_time = time.perf_counter()
-    for table, id in zip(tables_list, id_columns):
+    for table in tables_list:
         start_time = time.perf_counter()
         submissions_response = odata_submissions(base_url, aut, projectId, formId, table)
         mill_fetch_time = time.perf_counter()
@@ -171,54 +171,54 @@ def fetch_odk_submissions(form_index, base_url: str, aut: object, projectId: str
         # select only the wanted columns
         # WARNING columns is a dict imported from
         # config.py via star import!!! Dont do this
-        wanted_columns = columns[table]
+        wanted_columns = [s.replace('-' , '_') for s in columns[table].split(',')]
         form_data = [{key: row[key] for key in wanted_columns} for row in flatsubs]
         flatsubs = form_data
         # if the id column is not __id then change the id column to the right column
-        if id != '__id':
-            for row in flatsubs:
-                row['machine_id'] = row['__id']
-                row['__id'] = row[id]
-                del row[id]
+        # if id != '__id':
+        #     for row in flatsubs:
+        #         row['machine_id'] = row['__id']
+        #         row['__id'] = row[id]
+        #         del row[id]
         # sort the data base on the '__id' column
-        flatsubs = sorted(flatsubs, key=lambda d: d['__id'])
+        # flatsubs = sorted(flatsubs, key=lambda d: d['__id'])
         tables_data.append(flatsubs)
-    all_tables = []
+    # all_tables = []
     # Merge the tables together iteratively
-    mills_iterator = 0
-    for i in range(0, len(tables_data[1])):
-        machines_iterator = i
-        # if the ids are the same at the machine and the mill, update the data to include the mills data
-        if tables_data[0][mills_iterator]['__id'] == tables_data[1][machines_iterator]['__id']:
-            mill_update = tables_data[0][mills_iterator].copy()
-            all_tables.append(mill_update)
-            machine_update = tables_data[1][machines_iterator].copy()
-            all_tables[i].update(machine_update)
-        else:
-            mills_iterator += 1
-            mill_update = tables_data[0][mills_iterator].copy()
-            all_tables.append(mill_update)
-            machine_update = tables_data[1][machines_iterator].copy()
-            all_tables[i].update(machine_update)
-    merging_tables_time = time.perf_counter()
-    print(f'Merged the mills and machines in {merging_tables_time - start_time}s')
+    # mills_iterator = 0
+    # for i in range(0, len(tables_data[1])):
+    #     machines_iterator = i
+    #     # if the ids are the same at the machine and the mill, update the data to include the mills data
+    #     if tables_data[0][mills_iterator]['__id'] == tables_data[1][machines_iterator]['__id']:
+    #         mill_update = tables_data[0][mills_iterator].copy()
+    #         all_tables.append(mill_update)
+    #         machine_update = tables_data[1][machines_iterator].copy()
+    #         all_tables[i].update(machine_update)
+    #     else:
+    #         mills_iterator += 1
+    #         mill_update = tables_data[0][mills_iterator].copy()
+    #         all_tables.append(mill_update)
+    #         machine_update = tables_data[1][machines_iterator].copy()
+    #         all_tables[i].update(machine_update)
+    # merging_tables_time = time.perf_counter()
+    # print(f'Merged the mills and machines in {merging_tables_time - start_time}s')
     # open a file for writing
     file_name = ''.join([formId, '.csv'])
     dir = 'app/submission_files'
     path = os.path.join(dir, file_name)
-    for row in all_tables:
-        # transform the columns to have capitals and no underscores
-        row['interviewee_mill_owner'] = row['interviewee_mill_owner'].capitalize()
-        row['interviewee_mill_owner'] = row['interviewee_mill_owner'].replace('_', ' ')
+    # for row in all_tables:
+    #     # transform the columns to have capitals and no underscores
+    #     row['interviewee_mill_owner'] = row['interviewee_mill_owner'].capitalize()
+    #     row['interviewee_mill_owner'] = row['interviewee_mill_owner'].replace('_', ' ')
 
     with open(path, 'w') as data_file:
         csv_writer = csv.writer(data_file)
         # Counter variable used for writing
         count = 0
         # write the rows
-        for emp in all_tables:
+        for emp in flatsubs:
             try:
-                emp['geo'] = ','.join(str(l) for l in (emp['Location_mill_gps_coordinates'][-2:-4:-1]))
+                emp['geo'] = ','.join(str(l) for l in (emp['coordinatesDescription_coodinates_coordinates'][-2:-4:-1]))
             except:
                 print('No gps coordinates found')
             if count == 0:
@@ -233,7 +233,7 @@ def fetch_odk_submissions(form_index, base_url: str, aut: object, projectId: str
     # Update the config file
     new_submission_count = number_submissions(base_url, aut, projectId, formId)
     form_details[form_index]['lastNumberRecordsMills'] = new_submission_count
-    form_details[form_index]['lastNumberRecordsMachines'] = len(all_tables)
+    form_details[form_index]['lastNumberRecordsMachines'] = len(tables_data)
     form_details[form_index]['lastChecked'] = time.localtime(time.time())
     update_form_config_file(form_details)
-    return all_tables
+    return tables_data
