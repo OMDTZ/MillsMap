@@ -192,6 +192,10 @@ function drawMarkers(data) {
             //             img.src = "static/figures/" + fn;
             //         }
             //     })
+
+            marker.on('mouseover', function (ev) {
+                ev.target.openPopup();
+            });
             return marker;
         });
 
