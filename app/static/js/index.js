@@ -17,19 +17,3 @@ mills_promise.then(function (data) {
 
 });
 createMapIcons(map);
-
-
-const downloadMap = document.getElementById("download-map")
-downloadMap.onclick = () => {
-    console.log('JEEEEEEEEEEE')
-    // map.export()
-    console.log('JAAAAAAAAAAAAa')
-}
-
-
-// const downloadMap = document.getElementById("download-map")
-// downloadMap.onclick = () => {
-//     console.log('JEEEEEEEEEEE')
-//     map.downloadExport()
-//     console.log('JAAAAAAAAAAAAa')
-// }
