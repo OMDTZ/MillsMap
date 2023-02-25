@@ -208,10 +208,11 @@ def fetch_odk_submissions(form_index, base_url: str, aut: object, projectId: str
     file_name = ''.join([formId, '.csv'])
     dir = 'app/submission_files'
     path = os.path.join(dir, file_name)
-    # for row in all_tables:
-    #     # transform the columns to have capitals and no underscores
-    #     row['interviewee_mill_owner'] = row['interviewee_mill_owner'].capitalize()
-    #     row['interviewee_mill_owner'] = row['interviewee_mill_owner'].replace('_', ' ')
+    for row in flatsubs:
+        # transform the columns to have capitals and no underscores
+        row['school_details_school_type'] = row['school_details_school_type'].replace('_', ' ')
+        # row['interviewee_mill_owner'] = row['interviewee_mill_owner'].capitalize()
+        # row['interviewee_mill_owner'] = row['interviewee_mill_owner'].replace('_', ' ')
 
     with open(path, 'w') as data_file:
         csv_writer = csv.writer(data_file)
