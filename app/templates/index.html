@@ -2,39 +2,44 @@
 {% block content %}
 {% include 'top_navbar.html' %}
 <div class="container-fluid">
-        <div class="row">
-            {% include 'info.html' %}
-            {% include 'filters.html' %}
-            {% include 'infographics.html' %}
-            {% include 'howto.html' %}
-            <div class="col hide side-column">
-                <h4>Machine details</h4>
-                <p id="machine_details"></p>
-                <div id="details_container"></div>
-            </div>
+    <div class="row">
+        {% include 'info.html' %}
+        {% include 'filters.html' %}
+        {% include 'infographics.html' %}
+        {% include 'howto.html' %}
+        <div class="col hide side-column">
+            <h4>Machine details</h4>
+            <p id="machine_details"></p>
+            <div id="details_container"></div>
+        </div>
 
-            <div class="col-8 mt-3" id="mapbar">
-                <span class="ouro" id="spin">
-                    <span class="left"><span class="anim"></span></span>
-                    <span class="right"><span class="anim"></span></span>
-                </span>
-                <div id="mapid">
-                </div>
-                <p id="download-info" class="hide">Testing</p>
-
+        <div class="col-8 mt-3" id="mapbar">
+            <span class="ouro" id="spin">
+                <span class="left"><span class="anim"></span></span>
+                <span class="right"><span class="anim"></span></span>
+            </span>
+            <div id="mapid">
             </div>
+            <p id="download-info" class="hide">Testing</p>
+
         </div>
     </div>
+</div>
 </div>
 
 {% include 'graphs.html' %}
 
-    	<!--	Local javascript-->
+<!--	Local javascript-->
+
+<script
+    src="{{ url_for('static', filename='node_modules/leaflet.browser.print/dist/leaflet.browser.print.js')}}"></script>
+<script src="{{ url_for('static', filename='js/libraries/leaflet.easyprint.js')}}"></script>
+
 <script src="{{url_for('static', filename='js/toggleNavbar.js')}}"></script>
 <script src="{{url_for('static', filename='js/map.js')}}"></script>
 <script src="{{url_for('static', filename='js/index.js')}}"></script>
-<script src="{{ url_for('static', filename='node_modules/leaflet.export/leaflet._export.js')}}"></script>
 </body>
+
 </html>
 
 {% endblock content %}

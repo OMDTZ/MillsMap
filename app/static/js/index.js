@@ -9,18 +9,27 @@ var subs
 cofigurations = $.get('/read_config')
 mills_promise = $.get('/read_submissions')
 
-mills_promise.then(function(data) {
+mills_promise.then(function (data) {
     data = JSON.parse(data)
     var element = document.getElementById("spin");
     element.classList.toggle("hide");
     drawMarkers(data);
+
 });
-createLegend(map);
+createMapIcons(map);
 
 
 const downloadMap = document.getElementById("download-map")
-downloadMap.onclick=()=>{
+downloadMap.onclick = () => {
     console.log('JEEEEEEEEEEE')
-    map.export()
+    // map.export()
     console.log('JAAAAAAAAAAAAa')
 }
+
+
+// const downloadMap = document.getElementById("download-map")
+// downloadMap.onclick = () => {
+//     console.log('JEEEEEEEEEEE')
+//     map.downloadExport()
+//     console.log('JAAAAAAAAAAAAa')
+// }
