@@ -6,7 +6,6 @@ password = secret_tokens['password']
 aut = (email, password)
 base_url = 'https://schooldataserver.tz'
 
-# mill_columns = ['coordinatesDescription_coodinates_coordinates', 'Food_purchases_foodtype']
 mill_columns = 'coordinatesDescription_coodinates_coordinates,start,end,school_details-school_name,interviewee_details-interviewee_role,interviewee_details-date_of_interview,school_details-school_name,school_details-school_type,school_details_Location-addr_region,\
 school_details_Location-addr_district,school_details_Location-addr_ward_shehiya,school_details_Location-other_ward_sheiya,school_details_Location-addr_subward,school_details_Status-school_registration_number,\
 school_details_Status-school_distance_centre,school_details_Status-status,school_details_Status-title_deed_number,school_details_Status-school_coverage,school_details_Status-school_services,school_details_Status-school_ownership,\
@@ -31,13 +30,34 @@ Nutrition_club-school_nutrition_club_meet_frequency,Nutrition_club-school_nutrit
 Cooking-cooking_area_other,Cooking-cooking_stoves,Cooking-energy,Cooking-school_utensils,Cooking-school_utensils_other,Cooking-utensil_store,Cooking-utensil_store_other,Cooking-school_dining_hall,Electricity-school_electricity_access,\
 Electricity-school_electricity_source,Electricity-school_electricity_source_other,Electricity-school_electrical_appliances,Electricity-school_electrical_appliances_list,Electricity-school_electrical_appliances_list_other,\
 Electricity-school_water_source,Electricity-school_water_source_other,coordinatesDescription-teacher_canupdate'
-# machine_columns = ['__id', '__Submissions-id',
-#                    'commodity_milled',
-#                    'mill_type', 'operational_mill',
-#                    'energy_source', 'img_machines',
-#                    'non_operational']
+
 columns = {'Submissions': mill_columns}
 
+filters = {
+    'school_details_Location_addr_region': 'Region',
+    'school_details_Location_addr_district': 'District',
+    'Food_purchases_foodtype': 'Food purchases type',
+    'school_details_school_type': 'School type',
+    'school_details_Status_school_ownership': 'School ownership',
+    'school_details_Status_school_accommodation': 'School Accommodation',
+    'feeding_feeding_status': 'Feeding Status',
+    'Food_purchases_feeding_program_planning': 'Feeding Program Planning',
+    'Food_purchases_meals_timetable': 'Meals Timetable',
+    'Sponsorship_feeding_program_provider_or_sponsor': 'School Meals Sponsor',
+    'Food_food_source': 'Food Source',
+    'Food_fortified_food': 'Cooking Fortified food',
+    'Food_fortified_type': 'Fortified type',
+    'Food_bio_fortified_food': 'Cooking Biofortified food',
+    'Food_biofortified_type': 'Biofortified type',
+    'school_farm_staple_foods_available': 'Staple foods available',
+    'school_farm_school_poultry': 'School poultry',
+    'school_farm_school_garden_or_farm': 'Does the school have the Farm or Garden',
+    'school_farm_cultivated_vegetables_or_crops': 'What vegetables or crops are cultivated in the school garden or farm?',
+    'Nutrition_club_school_nutrition_club': 'School nutrition club',
+    'Cooking_cooking_area': 'Cooking area',
+    'Cooking_energy': 'Cooking Energy',
+    'Electricity_school_electricity_access': 'Electricity access',
+}
 submission_files_path = 'app/submission_files'
 figures_path = 'app/static/figures'
 update_time = 60 #time in seconds to check and update new submissions

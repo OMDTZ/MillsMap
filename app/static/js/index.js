@@ -17,3 +17,11 @@ mills_promise.then(function (data) {
 
 });
 createMapIcons(map);
+
+
+function myFunction2() {
+    var schoolNameField = document.getElementById("schoolNameField");
+  console.log("The input value has changed. The new value is: " + schoolNameField.value);
+}
+
+

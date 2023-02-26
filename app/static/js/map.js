@@ -333,19 +333,34 @@ function drawMarkers(data) {
 
     // //     Select menus
     const filters = {
-        'school_details_Location_addr_region': ['selectRegion', 'Region'],
-        'school_details_Location_addr_district': ['selectDistrict', 'District'],
-        'Food_purchases_foodtype': ['selectFoodType', 'Food purchases type'],
-        'school_details_school_type': ['selectSchoolType', 'School type'],
-        'school_details_Status_school_ownership': ['selectSchoolOwnership', 'School ownership'],
-        'school_details_Status_school_accommodation': ['selectSchoolAccommodation', 'School Accommodation'],
-        'feeding_feeding_status': ['selectFeedingStatus', 'Feeding Status'],
-        'Food_purchases-feeding_program_planning': ['selectFeedingPlanning', 'Feeding Program Planning'],
+        'school_details_Location_addr_region': 'Region',
+        'school_details_Location_addr_district': 'District',
+        'Food_purchases_foodtype': 'Food purchases type',
+        'school_details_school_type': 'School type',
+        'school_details_Status_school_ownership': 'School ownership',
+        'school_details_Status_school_accommodation': 'School Accommodation',
+        'feeding_feeding_status': 'Feeding Status',
+        'Food_purchases_feeding_program_planning': 'Feeding Program Planning',
+        'Food_purchases_meals_timetable': 'Meals Timetable',
+        'Sponsorship_feeding_program_provider_or_sponsor': 'School Meals Sponsor',
+        'Food_food_source': 'Food Source',
+        'Food_fortified_food': 'Cooking Fortified food',
+        'Food_fortified_type': 'Fortified type',
+        'Food_bio_fortified_food': 'Cooking Biofortified food',
+        'Food_biofortified_type': 'Biofortified type',
+        'school_farm_staple_foods_available': 'Staple foods available',
+        'school_farm_school_poultry': 'School poultry',
+        'school_farm_school_garden_or_farm': 'Does the school have the Farm or Garden',
+        'school_farm_cultivated_vegetables_or_crops': 'What vegetables or crops are cultivated in the school garden or farm?',
+        'Nutrition_club_school_nutrition_club': 'School nutrition club',
+        'Cooking_cooking_area': 'Cooking area',
+        'Cooking_energy': 'Cooking Energy',
+        'Electricity_school_electricity_access': 'Electricity access',
     }
     for (let key in filters) {
         console.log('key is ', key);
-        const id = '#' + filters[key][0]
-        console.log(id)
+        const id = '#select' + key
+        console.log('id is', id)
 
         var region = cross_data.dimension(function (d) { return d[key]; });
         var selectRegion = new dc.SelectMenu(id, groupname);
