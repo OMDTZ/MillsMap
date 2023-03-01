@@ -24,15 +24,21 @@ def read_local_tables_together(folder):
         with open(table_path, newline='') as data_file:
             csv_file = csv.DictReader(data_file)
             for row in csv_file:
-                # row['non_operational'] = row['non_operational'].split(' ')
-                # row['energy_source'] = row['energy_source'].split(' ')
-                # row['commodity_milled'] = row['commodity_milled'].split(' ')
-                # row['Location_addr_region'] = row['Location_addr_region']
-                # row['Location_addr_district'] = row['Location_addr_district']
+                row['Food_purchases_foodtype'] = row['Food_purchases_foodtype'].split(' ')
+                row['Sponsorship_feeding_program_provider_or_sponsor'] = row['Sponsorship_feeding_program_provider_or_sponsor'].split(' ')
+                row['Food_food_source'] = row['Food_food_source'].split(' ')
+                row['Food_fortified_type'] = row['Food_fortified_type'].split(' ')
+                row['Food_biofortified_type'] = row['Food_biofortified_type'].split(' ')
+                row['school_farm_staple_foods_available'] = row['school_farm_staple_foods_available'].split(' ')
+                row['school_farm_cultivated_vegetables_or_crops'] = row['school_farm_cultivated_vegetables_or_crops'].split(' ')
+                row['Cooking_cooking_area'] = row['Cooking_cooking_area'].split(' ')
+                row['Cooking_energy'] = row['Cooking_energy'].split(' ')
                 # for column in array_columns:
-                #     row[column] = [item.capitalize().replace('_', ' ') for item in row[column]]
-                # for column in single_columns:
-                #         row[column] = row[column].capitalize().replace('_', ' ')
+                #     row[column] = [item.split(' ') for item in row[column]]
+                for column in array_columns:
+                    row[column] = [item.capitalize().replace('_', ' ') for item in row[column]]
+                for column in single_columns:
+                        row[column] = row[column].capitalize().replace('_', ' ')
                 try:
                     # transform the coordinates from a string to a list
                     row['coordinatesDescription_coodinates_coordinates'] = row['coordinatesDescription_coodinates_coordinates'][1:-1].split(',')

@@ -10,18 +10,17 @@ cofigurations = $.get('/read_config')
 mills_promise = $.get('/read_submissions')
 
 mills_promise.then(function (data) {
-    data = JSON.parse(data)
-    var element = document.getElementById("spin");
-    element.classList.toggle("hide");
-    drawMarkers(data);
+  data = JSON.parse(data)
+  var element = document.getElementById("spin");
+  element.classList.toggle("hide");
+  drawMarkers(data);
 
 });
 createMapIcons(map);
 
 
-function myFunction2() {
-    var schoolNameField = document.getElementById("schoolNameField");
+function searchSchool() {
+  var schoolNameField = document.getElementById("schoolNameField");
   console.log("The input value has changed. The new value is: " + schoolNameField.value);
 }
-
 

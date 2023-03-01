@@ -75,5 +75,22 @@ projectId = form_details[form_index]['projectId']
 formId = form_details[form_index]['formId']
 lastNumberRecordsMills = form_details[form_index]['lastNumberRecordsMills']
 
+array_columns = [
+    'Food_purchases_foodtype',
+    'Sponsorship_feeding_program_provider_or_sponsor',
+    'Food_food_source',
+    'Food_fortified_type',
+    'Food_biofortified_type',
+    'school_farm_staple_foods_available',
+    'school_farm_cultivated_vegetables_or_crops',
+    'Cooking_cooking_area',
+    'Cooking_energy'
+    ]
+single_columns = [
+    'school_details_Location_addr_district', 
+    'school_details_Status_school_accommodation',
+    'school_farm_school_garden_or_farm'
+    ]
+
 # array_columns = ['non_operational', 'commodity_milled', 'energy_source']
 # single_columns = ['Packaging_flour_fortified', 'operational_mill', 'interviewee_mill_owner', 'Packaging_flour_fortified_standard', 'mill_type']
