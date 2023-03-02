@@ -66,7 +66,7 @@ select{
     text-align:center;
 }
 #sidebar {
-    background: #31b0d5;
+    background: var(--caledor-sky);
     color: #fff;
     transition: all 0.3s;
     z-index:-1;
@@ -191,3 +191,33 @@ svg:not(:root) {
   75%{-webkit-transform:rotate(180deg)}
   100%{-webkit-transform:rotate(360deg)}
 }
+
+/* navigation bar css */
+.top_navbar {
+    padding: 8px 16px 8px 16px;
+}
+
+.top_navbar__logo {
+  height: 60px;
+  width: auto;
+}
+
+.top_navbar__button_group {
+  padding: 10px;
+}
+
+.top_navbar__button {
+  margin: 0 8px 0 8px;
+  padding: 0px 26px 0px 26px;
+  /* bolden text */
+    font-weight: 600;
+}
+
+.index_contents {
+    margin-top: 7rem;
+}
+
+/* colors */
+:root {
+    --caledor-sky: #30619c;  /* backhround color */
+  }
