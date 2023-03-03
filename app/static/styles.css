@@ -223,6 +223,7 @@ nav.nav {
     border-top-left-radius: 2rem;
     border-bottom-left-radius: 2rem;
     height: 90vh;
+    width: 22%;
 }
 
 
@@ -231,8 +232,12 @@ nav.nav {
 
 }
 
+.sidebar--closed {
+    height: inherit;
+}
+
 .sidebar__contents p {
-    font-size: 0.9em;
+    font-size: 0.8em;
    
 }
 
@@ -250,6 +255,7 @@ nav.nav {
 
 /* Map css */
 #mapbar {
+    width: 100%;
     padding: 0;
     
 }
@@ -262,6 +268,8 @@ nav.nav {
 
 .index_contents {
     margin-top: 8.2rem;
+    display: flex;
+    flex-direction: row;
 }
 
 body {

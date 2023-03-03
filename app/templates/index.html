@@ -1,28 +1,19 @@
 {% extends "layout.html" %}
 {% block content %}
 {% include 'top_navbar.html' %}
-<div class="container-fluid index_contents">
-    <div class="row">
-        {% include 'info.html' %}
-        {% include 'filters.html' %}
-        {% include 'infographics.html' %}
-        {% include 'howto.html' %}
-        <div class="col hide side-column">
-            <h4>Machine details</h4>
-            <p id="machine_details"></p>
-            <div id="details_container"></div>
+<div class=" index_contents">
+    <!-- sidebar -->
+    <div class="sidebar">{% include 'info.html' %}</div>
+    
+    <!-- map -->
+    <div id="mapbar">
+        <span class="ouro" id="spin">
+            <span class="left"><span class="anim"></span></span>
+            <span class="right"><span class="anim"></span></span>
+        </span>
+        <div id="mapid">
         </div>
-
-        <div class="col-9" id="mapbar">
-            <span class="ouro" id="spin">
-                <span class="left"><span class="anim"></span></span>
-                <span class="right"><span class="anim"></span></span>
-            </span>
-            <div id="mapid">
-            </div>
-            <p id="download-info" class="hide">Testing</p>
-
-        </div>
+        <p id="download-info" class="hide">Testing</p>
     </div>
 </div>
 </div>

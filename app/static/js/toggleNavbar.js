@@ -3,17 +3,15 @@ const toggleNavbar = () => {
     // toggle the left-side navbar
     $(document).ready(function () {
         $('.sidebar__button--close').on('click', function () {
+            $('.sidebar').css('width', '4%');
             $('.sidebar--opened').addClass('hide');
             $('.sidebar--closed').removeClass('hide');
-            $('#mapbar').addClass('col-11')
-            $('#mapbar').removeClass('col-9')
         });
 
         $('.sidebar__button--open').on('click', function () {
+            $('.sidebar').css('width', '22%');
             $('.sidebar--opened').removeClass('hide');
-            $('.sidebar--closed').addClass('hide');
-            $('#mapbar').removeClass('col-11')
-            $('#mapbar').addClass('col-9')
+            $('.sidebar--closed').addClass('hide'); 
         });
       
     });
