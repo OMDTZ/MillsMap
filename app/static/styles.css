@@ -1,6 +1,4 @@
-#mapid {
-  height:1000px;
-}
+
 .nav-link{
     color:black!important;
 }
@@ -65,12 +63,7 @@ select{
 #machineNumber{
     text-align:center;
 }
-#sidebar {
-    background: var(--caledor-sky);
-    color: #fff;
-    transition: all 0.3s;
-    z-index:-1;
-}
+
 #howto{
     margin:40px;
 }
@@ -109,7 +102,7 @@ svg:not(:root) {
     top: 40%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%) 
+    transform: translate(-50%, -50%) ;
     text-align: center;
     display:inline-block;
     height: 46px;
@@ -197,6 +190,14 @@ svg:not(:root) {
     padding: 8px 16px 8px 16px;
 }
 
+nav.nav {
+    box-shadow: none;
+}
+
+.nav-tabs{
+    border-bottom: none;
+}
+
 .top_navbar__logo {
   height: 60px;
   width: auto;
@@ -213,11 +214,62 @@ svg:not(:root) {
     font-weight: 600;
 }
 
+
+/* sidebar css */
+.sidebar {
+    background: var(--caledor-sky);
+    color: #fff;
+    padding: 0 26px 0 26px;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    height: 90vh;
+}
+
+
+.sidebar__contents--hide {
+    display: none;
+
+}
+
+.sidebar__contents p {
+    font-size: 0.9em;
+   
+}
+
+.sidebar__contents h3 {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.sidebar__contents p a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+
+
+/* Map css */
+#mapbar {
+    padding: 0;
+    
+}
+
+#mapid {
+    height: 90vh;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+
 .index_contents {
-    margin-top: 7rem;
+    margin-top: 8.2rem;
+}
+
+body {
+    background-color: #f8f9fa;
 }
 
 /* colors */
 :root {
     --caledor-sky: #30619c;  /* backhround color */
   }
+
