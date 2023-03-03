@@ -266,16 +266,6 @@ def json_test():
 @app.route('/index')
 @app.route('/home')
 def index():
-    filters = {
-        'school_details_Location_addr_region': ['selectRegion', 'Region'],
-        'school_details_Location_addr_district': ['selectDistrict', 'District'],
-        'Food_purchases_foodtype': ['selectFoodType', 'Food purchases type'],
-        'school_details_school_type': ['selectSchoolType', 'School type'],
-        'school_details_Status_school_ownership': ['selectSchoolOwnership', 'School ownership'],
-        'school_details_Status_school_accommodation': ['selectSchoolAccommodation', 'School Accommodation'],
-        'feeding_feeding_status': ['selectFeedingStatus', 'Feeding Status'],
-        'Food_purchases-feeding_program_planning': ['selectFeedingPlanning', 'Feeding Program Planning'],
-    }
     return render_template('index.html', title='Map', filters=filters)
 
 
