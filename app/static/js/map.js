@@ -44,6 +44,7 @@ const createMap = () => {
 
     L.control.layers(baseMaps).addTo(map);
     osmLayer.addTo(map);
+    L.geoJSON(geojsonFeature).addTo(map);
 
 
     // L.control.browserPrint({ position: 'topleft', title: 'Print ...' }).addTo(map);
