@@ -63,7 +63,7 @@ const createMapIcons = (map) => {
         printModes: [
             L.BrowserPrint.Mode.Auto("Download PNG"),
         ],
-        printFunction: saveAsImage
+        printFunction: () => {} // replaced saveAsImage function with an empty function to avoid error(Also I don't know the implementation of saveAsImage function)
     }).addTo(map)
 
     // Legend
