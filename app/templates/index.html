@@ -4,7 +4,11 @@
 <div class=" index_contents">
     <!-- sidebar -->
     <div class="sidebar sidebar_width--opened ">{% include 'info.html' %}</div>
-    
+    <!-- loading legend html code to dom, later JavaScript will correctly insert this content to the map -->
+    {% include 'legend.html' %}
+
+    <!-- loading filter html code to dom, later JavaScript will correctly insert this content to the map -->
+    {% include 'filters.html' %}
     <!-- map -->
     <div id="mapbar">
         <span class="ouro" id="spin">
