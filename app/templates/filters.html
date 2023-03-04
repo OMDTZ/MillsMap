@@ -1,13 +1,6 @@
 <div class="col-2 mt-4 margin-left-4 hide side-column" id="selects">
   <div style="clear: both; margin: 30px; float: left">
-
-    <div>
-      <h4>Search</h4>
-      <form>
-        <input type="text" name="schoolNameField" id="schoolNameField">
-        <button class="btn bg-info p-3 m-2" type="button" onclick="searchSchool()">Search</button>
-      </form>
-    </div>
+    <div id="search"></div>
     <h4>Filters</h4>
     {% for filter in filters %}
     <strong class="select-title m-2">{{ filter['name'] }}</strong>

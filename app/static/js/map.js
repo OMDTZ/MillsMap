@@ -111,6 +111,7 @@ function drawMarkers(data) {
             p.school_details_Location_addr_region = v.school_details_Location_addr_region;
             p.school_details_Location_addr_district = v.school_details_Location_addr_district;
             p.school_details_Location_addr_ward_shehiya = v.school_details_Location_addr_ward_shehiya;
+            p.school_details_school_name = v.school_details_school_name;
 
             // p.mill_type.push(v.mill_type);
             // p.image_fns.push(v.img_machines);
@@ -152,6 +153,12 @@ function drawMarkers(data) {
         }
     );
 
+    var schoolName = cross_data.dimension(function (d) {
+        return d.school_details_school_name + '' + d.school_details_Status_school_registration_number;
+    });
+    new dc.TextFilterWidget("#search", groupname)
+        .dimension(schoolName);
+
     var mapChart = dc_leaflet.markerChart("#mapid", groupname);
     mapChart
         .dimension(facilities)
@@ -182,19 +189,6 @@ function drawMarkers(data) {
                     Id: (kv.key).toString(),
                     icon: schoolIcon,
                 });
-            // marker.on('click', function(e) {
-            //     console.log(kv);
-            //     var details_container = document.getElementById('details_container')
-            //     details_container.innerHTML = '';
-            //     document.getElementById('machine_details').innerHTML = kv.value.mill_type
-            //     for(i in kv.value.image_fns){
-            //         var fn = kv.value.image_fns[i]
-            //             console.log(fn)
-            //             var img = document.createElement("img");
-            //             details_container.appendChild(img);
-            //             img.src = "static/figures/" + fn;
-            //         }
-            //     })
 
             marker.on('mouseover', function (ev) {
                 ev.target.openPopup();
@@ -461,4 +455,6 @@ function drawMarkers(data) {
             //         saveAs(blob, 'OMDTZ_mills.csv');
             //     });
         });
+
 }
+
