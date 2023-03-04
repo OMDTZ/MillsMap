@@ -9,9 +9,9 @@
       </form>
     </div>
     <h4>Filters</h4>
-    {% for key in filters %}
-    <strong class="select-title m-2">{{ filters[key] }}</strong>
-    <div class="select" id="{{ 'select' + key }}"></div>
+    {% for filter in filters %}
+    <strong class="select-title m-2">{{ filter['name'] }}</strong>
+    <div class="select" id="{{ 'select' + filter['key'] }}"></div>
     {% endfor %}
     <button class="btn bg-warning p-3 m-2" id="resetFilters">Reset filters</button>
     <h4>Download data</h4>
