@@ -89,7 +89,7 @@ const createMapIcons = (map) => {
 
 function drawMarkers(data) {
     var schoolIcon = L.icon({
-        iconUrl: 'static/static_figures/school-solid.svg',
+        iconUrl: 'static/static_figures/School.svg',
         iconSize: [60, 50], // size of the icon
     });
 
