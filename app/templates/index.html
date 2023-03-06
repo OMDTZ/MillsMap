@@ -6,9 +6,6 @@
     <div class="sidebar sidebar_width--opened ">{% include 'info.html' %}</div>
     <!-- loading legend html code to dom, later JavaScript will correctly insert this content to the map -->
     {% include 'legend.html' %}
-
-    <!-- loading filter html code to dom, later JavaScript will correctly insert this content to the map -->
-    {% include 'filters.html' %}
     <!-- map -->
     <div id="mapbar">
         <span class="ouro" id="spin">
@@ -19,10 +16,14 @@
         </div>
         <p id="download-info" class="hide">Testing</p>
     </div>
-</div>
+    <div class="map_filters">
+        {% include 'filters.html' %}
+    </div>
 </div>
 
-{% include 'graphs.html' %}
+{% include 'infographics.html' %}
+</div>
+
 
 <!--	Local javascript-->
 

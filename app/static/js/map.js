@@ -42,7 +42,6 @@ const createMap = () => {
         "HOTOSM": hotLayer
     } //here more layers: https://www.tutorialspoint.com/leafletjs/leafletjs_getting_started.htm
 
-    L.control.layers(baseMaps).addTo(map);
     osmLayer.addTo(map);
     L.geoJSON(geojsonFeature).addTo(map);
 
@@ -61,13 +60,13 @@ const createMapIcons = (map) => {
         sizeModes: ['A4Portrait', 'A4Landscape']
     }).addTo(map);
 
-    L.control.browserPrint({
-        documentTitle: "printImage",
-        printModes: [
-            L.BrowserPrint.Mode.Auto("Download PNG"),
-        ],
-        printFunction: () => {} // replaced saveAsImage function with an empty function to avoid error(Also I don't know the implementation of saveAsImage function)
-    }).addTo(map)
+    // L.control.browserPrint({
+    //     documentTitle: "printImage",
+    //     printModes: [
+    //         L.BrowserPrint.Mode.Auto("Download PNG"),
+    //     ],
+    //     printFunction: saveAsImage 
+    // }).addTo(map)
 
     // Legend
     var legend = L.control({ position: "bottomleft" });

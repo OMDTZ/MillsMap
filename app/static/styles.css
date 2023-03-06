@@ -292,6 +292,27 @@ body {
     background-color: #f8f9fa;
 }
 
+.map_filters {
+    height: 90vh;
+}
+.map_filters__items {
+    height: 70vh;
+    overflow-y: scroll;
+}
+
+#infographics {
+   display: flex;
+   /* wrap overaping contents */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#infographics div {
+    width: 30%;
+    background: #fff;
+    margin: 10px;
+}
+
 /* colors */
 :root {
     --caledor-sky: #30619c;  /* backhround color */
@@ -301,10 +322,13 @@ body {
   /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
     .sidebar_width--opened {
-        width: 30%;
+        width: 35%;
     }
     .sidebar_width--closed {
         width: 5%;
+    }
+    .map_filters {
+        width: 30%;
     }
     .sidebar__contents p {
         font-size: 0.7em;
@@ -315,7 +339,7 @@ body {
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
     .sidebar_width--opened {
-        width: 22%;
+        width: 27%;
     }
     .sidebar_width--closed {
         width: 4%;
@@ -323,5 +347,9 @@ body {
     .sidebar__contents p {
         font-size: 0.8em;
     } 
+
+    .map_filters {
+        width: 22%;
+    }
 
 }
