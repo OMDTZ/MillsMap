@@ -266,7 +266,7 @@ def json_test():
 @app.route('/index')
 @app.route('/home')
 def index():
-    return render_template('index.html', title='Map', filters=filters)
+    return render_template('index.html', title='Map', filters=filters, infographics = infographics)
 
 
 @app.route('/filterform', methods=['GET', 'POST'])
