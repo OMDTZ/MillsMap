@@ -7,7 +7,7 @@ User=millsmap
 Group=www-data
 WorkingDirectory=/home/millsmap/MillsMap
 Environment="PATH=/home/millsmap/MillsMap/venv/bin"
-ExecStart=/home/millsmap/MillsMap/venv/bin/uwsgi --ini millsmap.ini
+ExecStart=/home/millsmap/MillsMap/venv/bin/uwsgi --ini millsmap.ini --enable-threads
 
 [Install]
 WantedBy=multi-user.target
