@@ -72,7 +72,7 @@ def check_new_submissions_odk():
                     form_details[form_index]['lastNumberRecordsMills'] = 0
             formId = form_details[form_index]['formId']
             old_submission_count = form_details[form_index]['lastNumberRecordsMills']
-            new_submission_count = number_submissions(base_url, aut, projectId, formId)
+            new_submission_count = number_submissions(base_url, aut, projectId, formId)['submissions']
             # If there are new submissions, get the submission ids that are missing
             if new_submission_count - old_submission_count > 0:
                 print('New Submissions!')
@@ -240,7 +240,7 @@ def fetch_odk_submissions(form_index, base_url: str, aut: object, projectId: str
         data_file.close()
 
     # Update the config file
-    new_submission_count = number_submissions(base_url, aut, projectId, formId)
+    new_submission_count = number_submissions(base_url, aut, projectId, formId)['submissions']
     form_details[form_index]['lastNumberRecordsMills'] = new_submission_count
     form_details[form_index]['lastNumberRecordsMachines'] = len(tables_data)
     form_details[form_index]['lastChecked'] = time.localtime(time.time())

@@ -155,7 +155,13 @@ def number_submissions(base_url, auth, projectId, formId):
     Returns the number of submissions
     """
     url = f'{base_url}/v1/projects/{projectId}/forms/{formId}'
-    return requests.get(url, auth = auth, headers={'X-Extended-Metadata': 'true'}).json()['submissions']
+    response = requests.get(url, auth=auth, headers={'X-Extended-Metadata': 'true'})
+    print('response')
+    print(response)
+    response_json = response.json()
+    print('response_json')
+    print(response_json)
+    return response_json
 
 def get_submission_details(base_url, auth, projectId, formId, table):
     """
