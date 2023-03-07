@@ -353,14 +353,63 @@ body {
 #maps, #howto {
     background: #fff; 
     border-radius: 2rem;
+    height: 90vh;
 
+}
+
+#maps label {
+    font-size: 1.2em;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+
+
+#maps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10%
+}
+
+#maps select {
+    width: 40%;
+    margin-top: 20px;
+    height: 40px;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+#maps input[type='submit'] {
+    width: 10%;
+    margin-top: 10px;
+    color: #fff;
+    background: var(--caledor-sky);
+    border-color: var(--caledor-sky);
+    /* border: none;
+    box-shadow: none; */
+    padding: 5px;
+    /* border-radius: 10%; */
+}
+
+#maps input[type='submit']:hover, #maps input[type='submit']:focus {
+    background: #ffc107;
+    border-color: #ffc107;
+}
+
+
+
+#maps form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #howto {
     width: 100%;
     display: flex;
     padding: 0 26px 0 26px;
-    height: 90vh;
+    
 }
 
 #howto p,#howto p ol  {
@@ -370,6 +419,8 @@ body {
 #howto img {
     margin-top: 80px;
 }
+
+
 
 
 

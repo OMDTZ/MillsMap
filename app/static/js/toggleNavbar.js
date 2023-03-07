@@ -32,6 +32,13 @@ const toggleNavbar = () => {
                 $('#infographics').addClass('hide');
             }
         });
+
+        // handle dowloading maps
+        $('#maps form').on('submit', function (e) {
+            e.preventDefault();
+            let link = $('#maps form select').val();
+            console.log(link);
+        });
       
     });
 }
