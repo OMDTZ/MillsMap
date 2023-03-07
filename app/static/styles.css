@@ -64,9 +64,7 @@ select{
     text-align:center;
 }
 
-#howto{
-    margin:40px;
-}
+
 .wrapper {
     display: flex;
     align-items: stretch;
@@ -283,7 +281,10 @@ nav.nav {
 }
 
 .index_contents {
-    margin-top: 8.2rem;
+    margin-top: 8.2rem; 
+}
+
+.page {
     display: flex;
     flex-direction: row;
 }
@@ -347,6 +348,27 @@ body {
     color: #ffc107;
     border-color: var(--caledor-sky);
     box-shadow: none;
+}
+
+#maps, #howto {
+    background: #fff; 
+    border-radius: 2rem;
+
+}
+
+#howto {
+    width: 100%;
+    display: flex;
+    padding: 0 26px 0 26px;
+    height: 90vh;
+}
+
+#howto p,#howto p ol  {
+    font-size: 1em;
+}
+
+#howto img {
+    margin-top: 80px;
 }
 
 
