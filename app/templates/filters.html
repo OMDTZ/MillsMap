@@ -1,20 +1,9 @@
-<div class="col-2 mt-4 margin-left-4 hide side-column" id="selects">
-  <div style="clear: both; margin: 30px; float: left">
-    <div id="search"></div>
-    <h4>Filters</h4>
-    {% for filter in filters %}
-    <strong class="select-title m-2">{{ filter['name'] }}</strong>
-    <div class="select" id="{{ 'select' + filter['key'] }}"></div>
-    {% endfor %}
-    <button class="btn bg-warning p-3 m-2" id="resetFilters">Reset filters</button>
-    <h4>Download data</h4>
-    <div id="download-type" style="clear: both; float: left">
-      <div><label><input type=radio name="operation" value="raw" checked="true">&nbsp;All data</label></div>
-      <div><label><input type=radio name="operation" value="table">&nbsp;Filtered data</label></div>
-    </div>
-    <br>
-    <div style="float: left">
-      <button class="btn bg-info p-3 m-2" id="download">Download</button>
-    </div>
-  </div>
+<div id="search"></div>
+<h4>Filters</h4>
+<div class="map_filters__items">
+  {% for filter in filters %}
+  <strong class="select-title m-2">{{ filter['name'] }}</strong>
+  <div class="select" id="{{ 'select' + filter['key'] }}"></div>
+  {% endfor %}
 </div>
+<button class="btn bg-warning p-3 m-2" id="resetFilters">Reset filters</button>

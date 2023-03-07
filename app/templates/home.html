@@ -1,0 +1,21 @@
+<div class=" page" id="home">
+    <!-- sidebar -->
+    <div class="sidebar sidebar_width--opened ">{% include 'info.html' %}</div>
+    <!-- loading legend html code to dom, later JavaScript will correctly insert this content to the map -->
+    {% include 'legend.html' %}
+    <!-- map -->
+    <div id="mapbar">
+        <span class="ouro" id="spin">
+            <span class="left"><span class="anim"></span></span>
+            <span class="right"><span class="anim"></span></span>
+        </span>
+        <div id="mapid">
+        </div>
+        <p id="download-info" class="hide">Testing</p>
+    </div>
+    <div class="map_filters hide">
+        {% include 'filters.html' %}
+    </div>
+</div>
+{% include 'infographics.html' %}
+</div>

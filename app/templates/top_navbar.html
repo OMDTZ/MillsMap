@@ -1,11 +1,31 @@
-<nav class="nav nav-tabs bg-light">
-  <button class="nav-link active text-info p-4"id="sidebarToggle">
-    <strong>Info</strong>
-  </button>
-  <button class="nav-link" id="filterToggle">
-    <strong>Filters and infographics</strong>
-  </button>
-  <button class="nav-link" id="howtoToggle">
-    <strong>How to use this page</strong>
-  </button>
+<nav class="nav nav-tabs bg-light fixed-top top_navbar">
+  <div class="row w-100">
+    <div class="col-3">
+      <div class="row">
+        <div class="col-3">
+          <a href="https://www.tamisemi.go.tz" target="_blank">
+            <img class="top_navbar__logo" src="static/static_figures/Coat_of_arms_of_Tanzania.png" alt="OMDTZ-logo">
+          </a>
+        </div>
+        <div class="col-6">
+          <a href="https://www.omdtz.or.tz" target="_blank">
+            <img class="top_navbar__logo" src="static/static_figures/OMDTZ-logo.png" alt="OMDTZ-logo">
+          </a>
+        </div>
+        <div class="col-3">
+          <a href="https://www.wfp.org" target="_blank">
+            <img class="top_navbar__logo" src="static/static_figures/WFP.jpeg" alt="WFP-logo">
+          </a>
+        </div>
+      </div>
+      
+    </div>
+    
+    <div class="col-9 text-right d-flex justify-content-end top_navbar__button_group">
+      <button type="button" data-page="home" class="btn btn-primary top_navbar__button top_navbar__button--active">Home</button>
+      <button type="button" data-page="maps" class="btn btn-primary top_navbar__button">Maps</button>
+      <button type="button" data-page="howto" class="btn btn-primary top_navbar__button">How to use</button>
+    </div>
+</div>
+ 
 </nav>

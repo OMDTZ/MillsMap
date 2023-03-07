@@ -1,43 +1,51 @@
-<div class="col-4 side-column" id="sidebar">
-                <div class="row">
-                    <div class="col-11 " >
-                        <div class="wrapper p-4">
-                            <nav >
-                                <div class="row">
-                                    <div class="col-8">
-                                        <img class="omdtz-logo" src="static/static_figures/OMDTZ-logo.png" alt="OMDTZ-logo">
-                                    </div>
-                                    <div class="col-4">
-                                        <img class="wfp-logo" src="static/static_figures/WFP.jpeg" alt="WFP-logo">
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <h2>Nationwide School Census in Tanzania</h2>
-                                         <p>OpenMap Development Tanzania (OMDTZ), supported by WFP Tanzania, is conducting a national-wide mills census from August through November 2021. The project aims at mapping approximately 13,000 mills and additional mills found in the field by collecting Geographical Positioning System (GPS) coordinates, operation, production capacity, type of mills, commodity milled, flour fortification, and other relevant information. Community mapping methodology employed for the mapping and data set will be available openly through here and  Openstreetmaps
-                                        </p>
-                                    </div>
-                                    <hr>
-                                    <div>
-                                        <h3>Find OMDTZ in social media: </h3>
-                                        <p class="social-share">
-                                            <a  class="social-media-icon m-3" href="https://www.linkedin.com/company/openmap-development-tanzania-omdtz"><image alt="linkedin"src="static/static_figures/social_media_icons/social-1_round-linkedin.svg"></a>
-                                            <a  class="social-media-icon m-3" href="https://www.facebook.com/OMDTZ"><img alt="facebook" src="static/static_figures/social_media_icons/social-1_round-facebook.svg"></a>
-                                            <a  class="social-media-icon m-3" href="https://twitter.com/OMDTZ"><img alt="twitter" src="static/static_figures/social_media_icons/social-1_round-twitter.svg"></a>
-                                            <a  class="social-media-icon m-3" href="https://www.instagram.com/omdtz/?hl=en"><img alt="instagram" src="static/static_figures/social_media_icons/social-1_round-instagram.svg"></a>
-                                        </p>
-                                    </div>
-                                    <br>
-                                <br>
-                                    <hr>
-                                    <div>
-                                        <h4>The current number of mill sites:</h4>
-                                        <h4 id="millNumber"></h4>
-                                        <h4>The current number of machines:</h4>
-                                        <h4 id="machineNumber"></h4>
-                                    </div>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
+<div class=" sidebar--opened ">
+    <!-- add row -->
+    <div class="row">
+        <!-- sidebar contents -->
+        <div class="col-11 pt-4 sidebar__contents">
+            <h3>About</h3>
+            <p>
+                This nationwide database of pre and primary schools in Tanzania was built through the collaboration
+                between <a href="https://www.wfp.org/countries/tanzania">The World Food Programme (WFP)</a> in
+                partnership and support from the Government of Tanzania
+                through <a href="https://www.tamisemi.go.tz/">President’s Office Regional Administration and Local
+                    Government (PO-RALG)</a> and the Ministry of
+                <a href="https://www.moe.go.tz/en">Education, Science and Technology (MoET)</a>.
+            </p>
+            <p>
+                The webmap visualizes basic information on pre and primary schools in Tanzania then deep dives into
+                complex analyses that provide insights such as whether the schools have feeding program systems in place
+                to provide meals to students during school hours, and if yes, types of meals provided, at what
+                intervals, etc. Furthermore, the webmap highlights data about other school-feeding related affairs such
+                as whether the schools have access to electricity or other energy-source types, school cooking
+                infrastructures, presence of locally produced cereal foods and their types, etc.
+
+            </p>
+            <p>
+                The webmap is valuable for decision-makers—government and stakeholders in school feeding programs— to
+                better understand gaps and opportunities in the school feeding program and facilitate the design of
+                evidence-based interventions. It provides users with ability to filter data for viewing as well as to
+                download filtered data and infographics for further analyses according to needs.
+            </p>
+            <p>
+                Data was collected, curated and web-visualized by <a href="https://omdtz.or.tz">OpenMap Development
+                    Tanzania</a>.
+            </p>
+
+        </div>
+        <div class="col-1 d-flex justify-content-center align-items-center">
+            <div class="sidebar__button--close">
+                <svg fill="white" height="70" viewBox="0 0 24 24">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+                </svg>
             </div>
+        </div>
+    </div>
+</div>
+<div class=" sidebar--closed hide  d-flex justify-content-center align-items-center">
+    <div class="sidebar__button--open">
+        <svg fill="white" height="70" viewBox="0 0 24 24" style="transform: rotate(180deg);">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+          </svg>          
+    </div>
+</div>
