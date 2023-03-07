@@ -8,6 +8,9 @@ const createMap = () => {
     var map = new L.map('mapid', {
         fullscreenControl: true
     }).setView(center, 6);
+
+    map.scrollWheelZoom.disable();
+
     // Set up the OSM layer
     L.tileLayer(
         'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
