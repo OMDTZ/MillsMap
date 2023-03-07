@@ -63,14 +63,6 @@ const createMapIcons = (map) => {
         sizeModes: ['A4Portrait', 'A4Landscape']
     }).addTo(map);
 
-    // L.control.browserPrint({
-    //     documentTitle: "printImage",
-    //     printModes: [
-    //         L.BrowserPrint.Mode.Auto("Download PNG"),
-    //     ],
-    //     printFunction: saveAsImage 
-    // }).addTo(map)
-
     // Add Legend
     var legend = L.control({ position: "bottomleft" });
     legend.onAdd = function (map) {
@@ -423,9 +415,13 @@ function drawMarkers(data) {
             for (let index in filters) {
                 const id = '#select' + filters[index]['key']
                 if (filters[index]['array_column'] == 1) {
-                    var data_dimension = cross_data.dimension(function (d) { return d[filters[index]['key']]; }, true);
+                    var data_dimension = cross_data.dimension(function (d) {
+                        return d[filters[index]['key']] ? d[filters[index]['key']] : "No answer";
+                    }, true);
                 } else {
-                    var data_dimension = cross_data.dimension(function (d) { return d[filters[index]['key']]; });
+                    var data_dimension = cross_data.dimension(function (d) {
+                        return d[filters[index]['key']] ? d[filters[index]['key']] : "No answer";
+                    });
                 }
                 var selectDimension = new dc.SelectMenu(id, groupname);
                 selectDimension
@@ -440,9 +436,13 @@ function drawMarkers(data) {
             for (let index in filters) {
                 const id = '#infographic' + filters[index]['key']
                 if (filters[index]['array_column'] == 1) {
-                    var data_dimension = cross_data.dimension(function (d) { return d[filters[index]['key']]; }, true);
+                    var data_dimension = cross_data.dimension(function (d) {
+                        return d[filters[index]['key']] ? d[filters[index]['key']] : "No answer";
+                    }, true);
                 } else {
-                    var data_dimension = cross_data.dimension(function (d) { return d[filters[index]['key']]; });
+                    var data_dimension = cross_data.dimension(function (d) {
+                        return d[filters[index]['key']] ? d[filters[index]['key']] : "No answer";
+                    });
                 }
                 if (filters[index]['piechart'] == 1) {
                     var chartGroup = data_dimension.group().reduceCount();
@@ -481,17 +481,17 @@ function drawMarkers(data) {
                     dc.redrawAll(groupname);
                 });
 
-            // //    Download
-            //     d3.select('#download')
-            //     .on('click', function() {
-            //         if(d3.select('#download-type input:checked').node().value==='table') {
-            //             var selectedData = non_operational2.top(Infinity);
-            //         }else{
-            //         var selectedData = data
-            //         }
-            //         var blob = new Blob([d3.csvFormat(selectedData)], {type: "text/csv;charset=utf-8"});
-            //         saveAs(blob, 'OMDTZ_mills.csv');
-            //     });
+            //    Download
+            d3.select('#download')
+                .on('click', function () {
+                    if (d3.select('#download-type input:checked').node().value === 'table') {
+                        var selectedData = schoolName.top(Infinity);
+                    } else {
+                        var selectedData = data
+                    }
+                    var blob = new Blob([d3.csvFormat(selectedData)], { type: "text/csv;charset=utf-8" });
+                    saveAs(blob, 'OMDTZ_schools.csv');
+                });
         });
 
 }
