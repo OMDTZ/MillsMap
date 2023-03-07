@@ -68,31 +68,37 @@ const createMapIcons = (map) => {
     //     printFunction: saveAsImage 
     // }).addTo(map)
 
-    // Legend
+    // Add Legend
     var legend = L.control({ position: "bottomleft" });
-
-    // legend.onAdd = function (map) {
-    //     var div = L.DomUtil.create("div", "legend");
-    //     div.innerHTML += "<h4>Number of Schools</h4>";
-    //     div.innerHTML += '<i style="background: #7cc247"></i><span>Less than 10</span><br>';
-    //     div.innerHTML += '<i style="background: #f7eb65"></i><span>10 to 100</span><br>';
-    //     div.innerHTML += '<i style="background: #ff7438"></i><span>More than 100</span><br>';
-    //     div.innerHTML += '<i style="background: style="background-image: url(https://d30y9cdsu7xlg0.cloudfront.net/png/194515-200.png);background-repeat: no-repeat;"></i><span></span><br>';
-
-
-
-    //     return div;
-    // };
-
     legend.onAdd = function (map) {
         var div = L.DomUtil.create('div', 'legend');
         var legendContent = document.getElementById('legend-content').innerHTML;
         div.innerHTML = legendContent;
         return div;
     };
-
-
     legend.addTo(map);
+
+    // Add toggle open/close filters button
+    var toggleFiltersButton = L.control({ position: "topright" });
+    toggleFiltersButton.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'toggle_filters');
+        var button = `
+                            <button class="toggle_filters__button">
+                                    <svg height="16" fill="none" stroke="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+                                    </svg>
+                            </button>
+                        </div>
+        `;
+        div.innerHTML = button;
+        return div;
+    };
+    toggleFiltersButton.addTo(map);
+
+    // open/close filters when clicking on the button
+    $('.toggle_filters__button').click(function () {
+        $('.map_filters').toggleClass('hide');
+    });
 }
 
 function drawMarkers(data) {
