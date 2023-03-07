@@ -421,6 +421,11 @@ body {
     margin-top: 80px;
 }
 
+.scroll_indicator {
+   position: fixed;
+   top: 93%;
+   left: 60%;
+}
 
 
 
