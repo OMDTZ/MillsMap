@@ -278,7 +278,7 @@ nav.nav {
 
 #mapid {
     height: 90vh;
-    border-top-right-radius: 2rem;
+    /* border-top-right-radius: 2rem; */
     border-bottom-right-radius: 2rem;
 }
 
@@ -312,6 +312,17 @@ body {
     background: #fff;
     margin: 10px;
 }
+
+
+.toggle_filters__button {
+    border: none;
+    padding: 8px 14px 8px 14px;
+    border-color: var(--caledor-sky);;
+    border-radius: 0.5em;
+    background: var(--caledor-sky);
+}
+
+
 
 /* colors */
 :root {
