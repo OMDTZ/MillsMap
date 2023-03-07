@@ -74,8 +74,11 @@ nav.nav{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+/*  Please do change styles of this class
+This class is used in several places in the code to hide elements
+ */
 .hide {
-    display: none;
+    display: none; 
 }
 .expand-button-col{
     padding-left: 0px!important;
@@ -431,7 +434,7 @@ body {
   /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
     .sidebar_width--opened {
-        width: 35%;
+        width: 36%;
     }
     .sidebar_width--closed {
         width: 5%;
@@ -440,7 +443,7 @@ body {
         width: 30%;
     }
     .sidebar__contents p {
-        font-size: 0.7em;
+        font-size: 0.8em;
     }
 
 }
@@ -450,13 +453,13 @@ body {
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
     .sidebar_width--opened {
-        width: 27%;
+        width: 28%;
     }
     .sidebar_width--closed {
         width: 4%;
     }
     .sidebar__contents p {
-        font-size: 0.8em;
+        font-size: 0.9em;
     } 
 
     .map_filters {
