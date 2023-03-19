@@ -121,7 +121,7 @@ const createMapIcons = (map) => {
 function drawMarkers(data) {
     var schoolIcon = L.icon({
         iconUrl: 'static/static_figures/School.svg',
-        iconSize: [60, 50], // size of the icon
+        iconSize: [30, 30], // size of the icon
     });
 
     // Now the promise chain that uses the mills and machines
