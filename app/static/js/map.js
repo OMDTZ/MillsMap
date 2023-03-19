@@ -435,6 +435,7 @@ function drawMarkers(data) {
 
             for (let index in filters) {
                 const id = '#infographic' + filters[index]['key']
+                if (filters[index]['chart'] == 0) continue
                 if (filters[index]['array_column'] == 1) {
                     var data_dimension = cross_data.dimension(function (d) {
                         return d[filters[index]['key']] ? d[filters[index]['key']] : "No answer";
@@ -451,8 +452,13 @@ function drawMarkers(data) {
                         .group(chartGroup)
                         .slicesCap(12)
                     pieChart
-                        .legend(dc.legend().highlightSelected(true))
-                        .width(450)
+                        .legend(
+                            dc.legend()
+                                .highlightSelected(true)
+                                .legendText(function (d, i) { return d.name.charAt(0).toUpperCase() + d.name.slice(1); })
+                                .itemHeight(13)
+                        )
+                        .width(550)
                 } else {
                     var chartGroup = data_dimension.group();
                     var barChart = dc.barChart(id, groupname)

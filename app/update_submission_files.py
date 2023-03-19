@@ -39,6 +39,8 @@ def read_local_tables_together(folder):
                     row[column] = [item.capitalize().replace('_', ' ') for item in row[column]]
                 for column in single_columns:
                         row[column] = row[column].capitalize().replace('_', ' ')
+                for column in capitalize_columns:
+                        row[column] = row[column].capitalize()
                 try:
                     # transform the coordinates from a string to a list
                     row['coordinatesDescription_coodinates_coordinates'] = row['coordinatesDescription_coodinates_coordinates'][1:-1].split(',')

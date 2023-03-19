@@ -1,57 +1,69 @@
-
-.nav-link{
-    color:black!important;
-}
-.social-media-icon{
-    float:left;
+.nav-link {
+    color: black !important;
 }
 
-img{
-width: 100%;
-object-fit: cover;
+.social-media-icon {
+    float: left;
 }
+
+img {
+    width: 100%;
+    object-fit: cover;
+}
+
 #filterForm {
     background: aliceblue;
 }
 
-.btn-block{
-    display: -webkit-inline-box!important;
+.btn-block {
+    display: -webkit-inline-box !important;
 }
+
 /* Legend */
-.dc-legend-item.selected{
+.dc-legend-item.selected {
     outline: solid 2px #508EC3;
 }
-.dc-legend g.dc-legend-item.selected{
-    fill: #09497a!important;
+
+.dc-legend g.dc-legend-item.selected {
+    fill: #09497a !important;
+}
+
+.dc-legend {
+    dominant-baseline: central;
 }
 
 /* Select */
 .dc-chart select {
-  width: 150px;
+    width: 150px;
 }
+
 .dc-chart.select {
-  text-align: left;
-  margin:5px;
+    text-align: left;
+    margin: 5px;
 }
-select{
-    padding:5px;
-    margin:5px;
+
+select {
+    padding: 5px;
+    margin: 5px;
 }
-#resetFilters{
-    min-width:150px;
+
+#resetFilters {
+    min-width: 150px;
 }
-#download{
-    min-width:150px;
+
+#download {
+    min-width: 150px;
 }
+
 /* Popup */
-.popupImage{
-    max-height:20em;
-    object-fit:contain;
+.popupImage {
+    max-height: 20em;
+    object-fit: contain;
 }
 
 
 /* TopNav */
-.nav-link strong{
+.nav-link strong {
     color: #508EC3;
 }
 
@@ -60,8 +72,9 @@ select{
     display: flex;
     width: 100%;
 }
-#machineNumber{
-    text-align:center;
+
+#machineNumber {
+    text-align: center;
 }
 
 
@@ -70,7 +83,7 @@ select{
     align-items: stretch;
 }
 
-nav.nav{
+nav.nav {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -78,24 +91,28 @@ nav.nav{
 This class is used in several places in the code to hide elements
  */
 .hide {
-    display: none; 
+    display: none;
 }
-.expand-button-col{
-    padding-left: 0px!important;
+
+.expand-button-col {
+    padding-left: 0px !important;
 }
+
 /*Figures*/
-.dc-chart{
-    text-align:center;
+.dc-chart {
+    text-align: center;
     /*margin:30px;*/
 }
 
 #nonOperational g.axis.x text {
     text-anchor: end !important;
-    transform: rotate(-20deg)!important;
+    transform: rotate(-20deg) !important;
 }
+
 svg:not(:root) {
-    overflow: visible!important;
+    overflow: visible !important;
 }
+
 /*Loading giff*/
 .ouro {
     z-index: 500;
@@ -103,40 +120,52 @@ svg:not(:root) {
     top: 40%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%) ;
+    transform: translate(-50%, -50%);
     text-align: center;
-    display:inline-block;
+    display: inline-block;
     height: 46px;
     width: 46px;
 
-    border-radius: 50%;  
+    border-radius: 50%;
     background: none repeat scroll 0 0 #DDDDDD;
-    overflow:hidden;
-    box-shadow: 0 0 10px rgba(0,0,0,.1) inset, 0 0 25px rgba(0,0,255,0.075);
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1) inset, 0 0 25px rgba(0, 0, 255, 0.075);
 }
 
 .ouro:after {
     content: "";
     position: absolute;
-    top: 9px; left: 9px;
+    top: 9px;
+    left: 9px;
     display: block;
-    height: 28px; width: 28px;
+    height: 28px;
+    width: 28px;
     background: none repeat scroll 0 0 #F2F2F2;
     border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
 }
-.ouro > span {
+
+.ouro>span {
     position: absolute;
-    height: 100%; width: 50%;
+    height: 100%;
+    width: 50%;
     overflow: hidden;
 }
-.left  { left:0   }
-.right { left:50% }
+
+.left {
+    left: 0
+}
+
+.right {
+    left: 50%
+}
 
 .anim {
     position: absolute;
-    left: 100%; top: 0;
-    height: 100%; width: 100%;
+    left: 100%;
+    top: 0;
+    height: 100%;
+    width: 100%;
     border-radius: 999px;
     background: none repeat scroll 0 0 #508EC3;
     opacity: 0.8;
@@ -145,10 +174,12 @@ svg:not(:root) {
     -webkit-transform-origin: 0 50% 0;
     transform-origin: 0 50% 0;
 }
+
 .left .anim {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
 }
+
 .right .anim {
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
@@ -156,34 +187,93 @@ svg:not(:root) {
     -webkit-transform-origin: 100% 50% 0;
     transform-origin: 100% 50% 0;
 }
-@keyframes ui-spinner-rotate-right{
-  0%{transform:rotate(0deg)}
-  25%{transform:rotate(180deg)}
-  50%{transform:rotate(180deg)}
-  75%{transform:rotate(360deg)}
-  100%{transform:rotate(360deg)}
-}
-@keyframes ui-spinner-rotate-left{
-  0%{transform:rotate(0deg)}
-  25%{transform:rotate(0deg)}
-  50%{transform:rotate(180deg)}
-  75%{transform:rotate(180deg)}
-  100%{transform:rotate(360deg)}
+
+@keyframes ui-spinner-rotate-right {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    25% {
+        transform: rotate(180deg)
+    }
+
+    50% {
+        transform: rotate(180deg)
+    }
+
+    75% {
+        transform: rotate(360deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
 }
 
-@-webkit-keyframes ui-spinner-rotate-right{
-  0%{-webkit-transform:rotate(0deg)}
-  25%{-webkit-transform:rotate(180deg)}
-  50%{-webkit-transform:rotate(180deg)}
-  75%{-webkit-transform:rotate(360deg)}
-  100%{-webkit-transform:rotate(360deg)}
+@keyframes ui-spinner-rotate-left {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    25% {
+        transform: rotate(0deg)
+    }
+
+    50% {
+        transform: rotate(180deg)
+    }
+
+    75% {
+        transform: rotate(180deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
 }
-@-webkit-keyframes ui-spinner-rotate-left{
-  0%{-webkit-transform:rotate(0deg)}
-  25%{-webkit-transform:rotate(0deg)}
-  50%{-webkit-transform:rotate(180deg)}
-  75%{-webkit-transform:rotate(180deg)}
-  100%{-webkit-transform:rotate(360deg)}
+
+@-webkit-keyframes ui-spinner-rotate-right {
+    0% {
+        -webkit-transform: rotate(0deg)
+    }
+
+    25% {
+        -webkit-transform: rotate(180deg)
+    }
+
+    50% {
+        -webkit-transform: rotate(180deg)
+    }
+
+    75% {
+        -webkit-transform: rotate(360deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg)
+    }
+}
+
+@-webkit-keyframes ui-spinner-rotate-left {
+    0% {
+        -webkit-transform: rotate(0deg)
+    }
+
+    25% {
+        -webkit-transform: rotate(0deg)
+    }
+
+    50% {
+        -webkit-transform: rotate(180deg)
+    }
+
+    75% {
+        -webkit-transform: rotate(180deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg)
+    }
 }
 
 /* navigation bar css */
@@ -195,23 +285,23 @@ nav.nav {
     box-shadow: none;
 }
 
-.nav-tabs{
+.nav-tabs {
     border-bottom: none;
 }
 
 .top_navbar__logo {
-  height: 60px;
-  width: auto;
+    height: 60px;
+    width: auto;
 }
 
 .top_navbar__button_group {
-  padding: 10px;
+    padding: 10px;
 }
 
 .top_navbar__button {
-  margin: 0 8px 0 8px;
-  padding: 0px 26px 0px 26px;
-  /* bolden text */
+    margin: 0 8px 0 8px;
+    padding: 0px 26px 0px 26px;
+    /* bolden text */
     font-weight: 600;
 }
 
@@ -223,7 +313,7 @@ nav.nav {
     padding: 0 26px 0 26px;
     border-top-left-radius: 2rem;
     border-bottom-left-radius: 2rem;
-    height: 90vh; 
+    height: 90vh;
 }
 
 
@@ -238,7 +328,7 @@ nav.nav {
 
 .sidebar__contents p {
     font-size: 0.8em;
-   
+
 }
 
 .sidebar__contents h3 {
@@ -257,7 +347,7 @@ nav.nav {
 #mapbar {
     width: 100%;
     padding: 0;
-    
+
 }
 
 .legend {
@@ -284,7 +374,7 @@ nav.nav {
 }
 
 .index_contents {
-    margin-top: 8.2rem; 
+    margin-top: 8.2rem;
 }
 
 .page {
@@ -318,14 +408,15 @@ body {
     text-align: center;
     font-size: 1.2em;
 }
+
 .map_filters__items {
     height: 70vh;
     overflow-y: scroll;
 }
 
 #infographics {
-   display: flex;
-   /* wrap overaping contents */
+    display: flex;
+    /* wrap overaping contents */
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -340,21 +431,25 @@ body {
 .toggle_filters__button {
     border: none;
     padding: 8px 14px 8px 14px;
-    border-color: var(--caledor-sky);;
+    border-color: var(--caledor-sky);
+    ;
     border-radius: 0.5em;
     background: var(--caledor-sky);
 }
 
 /*  Nav bar styles */
-.top_navbar__button--active, .top_navbar__button--active:hover, .top_navbar__button--active:focus {
+.top_navbar__button--active,
+.top_navbar__button--active:hover,
+.top_navbar__button--active:focus {
     background: var(--caledor-sky);
     color: #ffc107;
     border-color: var(--caledor-sky);
     box-shadow: none;
 }
 
-#maps, #howto {
-    background: #fff; 
+#maps,
+#howto {
+    background: #fff;
     border-radius: 2rem;
     height: 90vh;
 
@@ -382,6 +477,7 @@ body {
     font-size: 1.2em;
     font-weight: 500;
 }
+
 #maps input[type='submit'] {
     width: 10%;
     margin-top: 15px;
@@ -392,7 +488,8 @@ body {
     padding: 5px;
 }
 
-#maps input[type='submit']:hover, #maps input[type='submit']:focus {
+#maps input[type='submit']:hover,
+#maps input[type='submit']:focus {
     background: #ffc107;
     border-color: #ffc107;
 }
@@ -410,10 +507,11 @@ body {
     width: 100%;
     display: flex;
     padding: 0 26px 0 26px;
-    
+
 }
 
-#howto p,#howto p ol  {
+#howto p,
+#howto p ol {
     font-size: 1em;
 }
 
@@ -422,9 +520,9 @@ body {
 }
 
 .scroll_indicator {
-   position: fixed;
-   top: 93%;
-   left: 60%;
+    position: fixed;
+    top: 93%;
+    left: 60%;
 }
 
 
@@ -432,21 +530,25 @@ body {
 
 /* colors */
 :root {
-    --caledor-sky: #30619c;  /* backhround color */
-  }
+    --caledor-sky: #30619c;
+    /* backhround color */
+}
 
-  /* media queries */
-  /* Large devices (laptops/desktops, 992px and up) */
+/* media queries */
+/* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
     .sidebar_width--opened {
         width: 36%;
     }
+
     .sidebar_width--closed {
         width: 5%;
     }
+
     .map_filters {
         width: 30%;
     }
+
     .sidebar__contents p {
         font-size: 0.8em;
     }
@@ -460,12 +562,14 @@ body {
     .sidebar_width--opened {
         width: 28%;
     }
+
     .sidebar_width--closed {
         width: 4%;
     }
+
     .sidebar__contents p {
         font-size: 0.9em;
-    } 
+    }
 
     .map_filters {
         width: 22%;
