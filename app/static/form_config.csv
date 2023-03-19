@@ -1,2 +1,2 @@
 projectId,formId,activityStatus,featureType,lastChecked,lastNumberRecordsMills,lastNumberRecordsMachines
-3,Nationwide School Mapping V3,1,point,"time.struct_time(tm_year=2023, tm_mon=3, tm_mday=7, tm_hour=20, tm_min=30, tm_sec=36, tm_wday=1, tm_yday=66, tm_isdst=0)",4921,1
+3,Nationwide School Mapping V3,1,point,"time.struct_time(tm_year=2023, tm_mon=3, tm_mday=19, tm_hour=13, tm_min=48, tm_sec=9, tm_wday=6, tm_yday=78, tm_isdst=0)",4921,1
