@@ -171,8 +171,6 @@ def fetch_odk_submissions(form_index, base_url: str, aut: object, projectId: str
         start_time = time.perf_counter()
         submissions_response = odata_submissions(base_url, aut, projectId, formId, table)
         mill_fetch_time = time.perf_counter()
-        print('Submission reponse is')
-        print(submissions_response.json())
         submissions = submissions_response.json()['value']
         flatsubs = [flatten_dict(sub) for sub in submissions]
         print(f'Fetched table {table} for the form {formId} in {mill_fetch_time - start_time}s')
@@ -181,6 +179,7 @@ def fetch_odk_submissions(form_index, base_url: str, aut: object, projectId: str
         # config.py via star import!!! Dont do this
         wanted_columns = [s.replace('-' , '_') for s in columns[table].split(',')]
         form_data = [{key: row[key] for key in wanted_columns} for row in flatsubs]
+        form_data = [{k: "NA" if not v else v for k, v in row.items()} for row in form_data]
         flatsubs = form_data
         # if the id column is not __id then change the id column to the right column
         # if id != '__id':
