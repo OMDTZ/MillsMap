@@ -382,17 +382,21 @@ body {
     font-size: 1.2em;
     font-weight: 500;
 }
-#maps input[type='submit'] {
-    width: 10%;
-    margin-top: 15px;
-    margin-left: 30%;
+#maps  input[type='button'] {
+    width: 100%;
     color: #fff;
     background: var(--caledor-sky);
     border-color: var(--caledor-sky);
+}
+
+#maps a {
+    width: 10%;
+    margin-top: 15px;
+    margin-left: 30%;
     padding: 5px;
 }
 
-#maps input[type='submit']:hover, #maps input[type='submit']:focus {
+#maps input[type='button']:hover, #maps input[type='button']:focus {
     background: #ffc107;
     border-color: #ffc107;
 }
