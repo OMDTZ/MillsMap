@@ -104,7 +104,13 @@ This class is used in several places in the code to hide elements
     /*margin:30px;*/
 }
 
-#nonOperational g.axis.x text {
+#infographicSponsorship_feeding_program_provider_or_sponsor g.axis.x text,
+#infographicschool_farm_cultivated_vegetables_or_crops g.axis.x text,
+#infographicFood_fortified_type g.axis.x text,
+#infographicschool_farm_staple_foods_available g.axis.x text,
+#infographicCooking_cooking_area g.axis.x text,
+#infographicCooking_energy g.axis.x text,
+#infographicFood_biofortified_type g.axis.x text {
     text-anchor: end !important;
     transform: rotate(-20deg) !important;
 }

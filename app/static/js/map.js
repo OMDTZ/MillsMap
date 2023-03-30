@@ -132,50 +132,24 @@ function drawMarkers(data) {
     });
     var cross_data = crossfilter(data);
     var groupname = "marker-select";
-    var facilities = cross_data.dimension(function (d) { return d.geo; });
+    var facilities = cross_data.dimension(function (d) {
+        // return d.index; 
+        return d.school_details_school_name + '' + d.school_details_Status_school_registration_number;
+    });
     var facilitiesGroup = facilities.group().reduce(
         function (p, v) { // add
             p.coordinatesDescription_coodinates_coordinates = v.coordinatesDescription_coodinates_coordinates;
-            p.Food_purchases_foodtype = v.Food_purchases_foodtype;
             p.school_details_school_name = v.school_details_school_name;
             p.school_details_Location_addr_region = v.school_details_Location_addr_region;
             p.school_details_Location_addr_district = v.school_details_Location_addr_district;
             p.school_details_Location_addr_ward_shehiya = v.school_details_Location_addr_ward_shehiya;
             p.school_details_school_name = v.school_details_school_name;
-
-            // p.mill_type.push(v.mill_type);
-            // p.image_fns.push(v.img_machines);
-            // p.energy_source.push(v.energy_source);
-            // p.Location_addr_region.push(v.Location_addr_region);
-            // p.Location_addr_district.push(v.Location_addr_district);
-            // p.operational_mill = v.operational_mill;
-            // p.non_operational = v.non_operational;
             p.geo = v.geo;
             ++p.count;
             return p;
         },
-        function (p, v) { // remove
+        function (p, v) { //remove
             --p.count;
-            // var index = p.image_fns.indexOf(v.img_machines);
-            // if (index > -1) {
-            //   p.image_fns.splice(index, 1);
-            // }
-            // var index = p.mill_type.indexOf(v.mill_type);
-            // if (index > -1) {
-            //   p.mill_type.splice(index, 1);
-            // }
-            // var index = p.mill_type.indexOf(v.energy_source);
-            // if (index > -1) {
-            //   p.energy_source.splice(index, 1);
-            // }
-            // var index = p.Location_addr_region.indexOf(v.Location_addr_region);
-            // if (index > -1) {
-            // p.Location_addr_region.splice(index, 1);
-            // }
-            // var index = p.Location_addr_district.indexOf(v.Location_addr_district);
-            // if (index > -1) {
-            // p.Location_addr_district.splice(index, 1);
-            // }
             return p;
         },
         function () { // init
@@ -201,7 +175,7 @@ function drawMarkers(data) {
         .locationAccessor(function (kv) {
             return kv.value.geo;
         })
-
+        .rebuildMarkers(true)
         .popup(function (kv) {
             var tooltip =
                 "<dt>School name: " + kv.value.school_details_school_name + "</dt>" +
@@ -225,155 +199,6 @@ function drawMarkers(data) {
             });
             return marker;
         });
-
-    // //  The mill and machine numbers
-    // //  machines are just the length of the data
-    //     document.getElementById('machineNumber').innerHTML = data.length;
-    // //  mills are the unique ids in the data
-    //     totalMills(cross_data);
-    //     function unique_count_groupall(group) {
-    //       return {
-    //         value: function() {
-    //           return group.all().filter(kv => kv.key).length;
-    //         }
-    //       };
-    //     }
-    //     function totalMills(cross_data) {
-    //         // Select the Mills
-    //         var totalMillsND = dc.numberDisplay("#millNumber")
-    //         .formatNumber(d3.format("")); //change to ".2s" if want to have only the first two digits
-    //         // Count them
-    //         var dim = cross_data.dimension(dc.pluck("__id"));
-    //         var uniqueMills = unique_count_groupall(facilities.group());
-    //         totalMillsND.group(uniqueMills).valueAccessor(x => x);
-    //         totalMillsND.render();
-    //     };
-
-
-    // //  Graphs
-    //     var Packaging_flour_fortified = cross_data.dimension(function(d) { return d.Packaging_flour_fortified; });
-    //     var Packaging_flour_fortifiedGroup = Packaging_flour_fortified.group().reduceCount();
-    //     var fortifiedFlourPie = dc.pieChart("#fortifiedFlour",groupname)
-    //       .dimension(Packaging_flour_fortified)
-    //       .group(Packaging_flour_fortifiedGroup)
-    //       fortifiedFlourPie
-    //       .legend(dc.legend().highlightSelected(true))
-    //       .width(450)
-    //       .on('pretransition', function(chart) {
-    //         chart.selectAll('text.pie-slice').text(function(d) {
-    //             return dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
-    //           })
-    //         })
-
-
-
-    //     var mill_type = cross_data.dimension(function(d) { return d.mill_type; });
-    //     var mill_typeGroup = mill_type.group().reduceCount();
-    //     var mill_typePie = dc.pieChart("#millTypes",groupname)
-    //       .dimension(mill_type)
-    //       .group(mill_typeGroup)
-    //       mill_typePie
-    //       .legend(dc.legend().highlightSelected(true))
-    //       .width(450)
-    //       .on('pretransition', function(chart) {
-    //        chart.selectAll('text.pie-slice').text(function(d) {
-    //           angle = (d.endAngle - d.startAngle) / (2*Math.PI) * 100;
-    //           let label = '';
-    //           if (angle > 6){
-    //               label = dc.utils.printSingleValue(angle) + '%'
-    //                  }
-    //              return label;
-    //         })
-    //       })
-
-    // for (let key in infographics) {
-    //     console.log('key is ', key);
-    //     const id = '#infographic' + key
-    //     var data_dimension = cross_data.dimension(function (d) { return d[key]; });
-
-    //     var chartGroup = data_dimension.group().reduceCount();
-    //     var pieChart = dc.pieChart(id, groupname)
-    //         .dimension(data_dimension)
-    //         .group(chartGroup)
-    //         .slicesCap(12)
-    //     pieChart
-    //         .legend(dc.legend().highlightSelected(true))
-    //         .width(450)
-    // }
-    // var operational_mill = cross_data.dimension(function (d) { return d.Food_purchases_foodtype; });
-    // var operational_millGroup = operational_mill.group().reduceCount();
-    // var operational_millPie = dc.pieChart("#infographicFood_purchases_foodtype", groupname)
-    //     .dimension(operational_mill)
-    //     .group(operational_millGroup)
-    //     .slicesCap(12)
-    // operational_millPie
-    //     .legend(dc.legend().highlightSelected(true))
-    //     .width(450)
-
-    //     var mill_owner = cross_data.dimension(function(d) { return d.interviewee_mill_owner; });
-    //     var mill_ownerGroup = mill_owner.group().reduceCount();
-    //     var mill_ownerPie = dc.pieChart("#millOwner",groupname)
-    //       .dimension(mill_owner)
-    //       .group(mill_ownerGroup)
-    //       mill_ownerPie
-    //       .legend(dc.legend().highlightSelected(true))
-    //       .width(450)
-
-    //     var fortified_standard = cross_data.dimension(function(d) { return d.Packaging_flour_fortified_standard; });
-    //     var fortified_standardGroup = fortified_standard.group().reduceCount();
-    //     var fortified_standardPie = dc.pieChart("#fortifiedStandard",groupname)
-    //       .dimension(fortified_standard)
-    //       .group(fortified_standardGroup)
-    //       fortified_standardPie
-    //       .legend(dc.legend().highlightSelected(true))
-    //       .width(450)
-
-    //     var commodity_milled = cross_data.dimension(function(d) { return d.commodity_milled;}, true);
-    //     var commodity_milledGroup = commodity_milled.group().reduceCount();
-    //     var commodity_milledChart = dc.barChart("#grainType",groupname)
-    //       commodity_milledChart
-    //         .x(d3.scaleBand())
-    //         .xUnits(dc.units.ordinal)
-    //         .brushOn(false)
-    // //        .yAxisLabel('Number of machines')
-    //         .dimension(commodity_milled)
-    //         .elasticY(true)
-    //         .width(450)
-    //         .yAxisPadding(100)
-    //         .group(commodity_milledGroup);
-
-    //     var energy_source = cross_data.dimension(function(d) { return d.energy_source; }, true);
-    //     var energy_sourceGroup = energy_source.group();
-    //     var energy_sourceChart = dc.barChart("#energySource",groupname)
-    //       energy_sourceChart
-    //           .x(d3.scaleBand())
-    //           .xUnits(dc.units.ordinal)
-    //           .brushOn(false)
-    // //          .yAxisLabel('Number of machines')
-    //           .dimension(energy_source)
-    //           .barPadding(0.1)
-    //           .outerPadding(0.05)
-    //           .elasticY(true)
-    //           .width(450)
-    //           .group(energy_sourceGroup);
-
-    //     var non_operational = cross_data.dimension(function(d){ return d.non_operational;}, true);
-    //     var non_operationalGroup = non_operational.group();
-    //     var non_operationalChart = dc.barChart("#nonOperational", groupname)
-    //     non_operationalChart
-    //         .dimension(non_operational)
-    //         .group(non_operationalGroup)
-    //         .x(d3.scaleBand())
-    //         .xUnits(dc.units.ordinal)
-    //         .brushOn(false)
-    // //        .yAxisLabel('Number of machines')
-    //         .barPadding(0.1)
-    //         .elasticY(true)
-    //         .outerPadding(0.05)
-    //         .width(250)
-
-    // Search
-
 
 
     //     Select menus
@@ -409,30 +234,111 @@ function drawMarkers(data) {
             console.log("filters", filters)
 
 
-            //return result; //JavaScript object
-            // return JSON.stringify(result); //JSON
+            /*
+            
+            */
+            // var select1 = new dc.SelectMenu('#selectschool_details_Location_addr_subward')
+            // var data_dimension = cross_data.dimension(function (d) { return d.school_details_Location_addr_subward; })
+            // select1
+            //     .dimension(data_dimension)
+            //     .group(data_dimension.group())
+            //     .controlsUseVisibility(true);
+
+            // let id = '#selectschool_details_Location_addr_subward'
+            // var data_dimension = cross_data.dimension(function (d) {
+            //     return d['school_details_Location_addr_subward']
+            // // });
+            // var selectDimension = new dc.SelectMenu(id, groupname);
+            // selectDimension
+            //     .dimension(data_dimension)
+            //     .group(data_dimension.group())
+            //     // .multiple(true)
+            //     .controlsUseVisibility(true);
+            // selectDimension.title(function (subs) {
+            //     return subs.key;
+            // })
+
+            // Test
+            // let supermarketItems = crossfilter([
+            //     { name: "banana", category: "fruit", country: "Malta", outOfDateQuantity: 3, quantity: 12 },
+            //     { name: "apple", category: "fruit", country: "Greece", outOfDateQuantity: 1, quantity: 9 },
+            //     { name: "apple", category: "fruit", country: "Spain", outOfDateQuantity: 1, quantity: 9 },
+            //     { name: "tomato", category: "vegetable", country: "Spain", outOfDateQuantity: 2, quantity: 25 }
+            // ])
+            // console.log(supermarketItems)
+            // // console.log(quantityByCategory.all())
+
+            // // let dimensionCountry = supermarketItems.dimension(item => item.country)
+            // let dimensionCountry = supermarketItems.dimension(function (d) { return d.country; })
+
+            // var selectMenu = new dc.SelectMenu('#selectTest', 'test');
+            // selectMenu
+            //     .dimension(dimensionCountry)
+            //     .group(dimensionCountry.group())
+            // // .multiple(true)
+            // // .controlsUseVisibility(true);
+            // selectMenu.title(function (subs) {
+            //     return subs.key;
+            // })
+            // datatable = new dc.DataTable('#datatable', 'test');
+
+            // datatable
+            //     .dimension(dimensionCountry)
+            //     // .section(function (d) { return d.name; })
+            //     .columns(['name', 'category'])
+            // // .size(data.length);
+            // dc.renderAll('test');
+
+
+
+
+
+
+
+            // datatable2 = new dc.DataTable('#datatable2', groupname);
+
+            // datatable2
+            //     .dimension(data_dimension)
+            //     // .section(function (d) { return d.name; })
+            //     .columns(['selectschool_details_Location_addr_subward', 'school_details_school_name', 'school_details_Location_addr_subward', 'geo'])
+
 
             for (let index in filters) {
-                const id = '#select' + filters[index]['key']
+                let id = '#select' + filters[index]['key']
                 if (filters[index]['array_column'] == 1) {
-                    var data_dimension = cross_data.dimension(function (d) {
+                    let data_dimension = cross_data.dimension(function (d) {
                         return d[filters[index]['key']] ? d[filters[index]['key']] : "No answer";
                     }, true);
+                    console.log(filters[index]['name'])
+                    let selectDimension = new dc.SelectMenu(id, groupname);
+                    selectDimension
+                        .dimension(data_dimension)
+                        .group(data_dimension.group())
+                    // .multiple(true)
+                    // .controlsUseVisibility(true);
+                    selectDimension.title(function (subs) {
+                        return subs.key;
+                    })
                 } else {
-                    var data_dimension = cross_data.dimension(function (d) {
+                    let data_dimension = cross_data.dimension(function (d) {
                         return d[filters[index]['key']] ? d[filters[index]['key']] : "No answer";
                     });
+                    console.log(filters[index]['name'])
+                    let selectDimension = new dc.SelectMenu(id, groupname);
+                    selectDimension
+                        .dimension(data_dimension)
+                        .group(data_dimension.group())
+                    // .multiple(true)
+                    // .controlsUseVisibility(true);
+                    selectDimension.title(function (subs) {
+                        return subs.key;
+                    })
                 }
-                var selectDimension = new dc.SelectMenu(id, groupname);
-                selectDimension
-                    .dimension(data_dimension)
-                    .group(data_dimension.group())
-                    .controlsUseVisibility(true);
-                selectDimension.title(function (subs) {
-                    return subs.key;
-                })
+
             }
 
+
+            /* Create the infographics based on the filter_graphic_config.js file */
             for (let index in filters) {
                 const id = '#infographic' + filters[index]['key']
                 if (filters[index]['chart'] == 0) continue
@@ -450,7 +356,7 @@ function drawMarkers(data) {
                     var pieChart = dc.pieChart(id, groupname)
                         .dimension(data_dimension)
                         .group(chartGroup)
-                        .slicesCap(12)
+                        .slicesCap(10)
                     pieChart
                         .legend(
                             dc.legend()
@@ -466,7 +372,6 @@ function drawMarkers(data) {
                         .x(d3.scaleBand())
                         .xUnits(dc.units.ordinal)
                         .brushOn(false)
-                        //          .yAxisLabel('Number of machines')
                         .dimension(data_dimension)
                         .barPadding(0.1)
                         .outerPadding(0.05)
@@ -475,9 +380,10 @@ function drawMarkers(data) {
                         .group(chartGroup);
                 }
 
+
             }
 
-            dc.renderAll(groupname);
+            // dc.renderAll(groupname);
 
             //  Reset the filters
             d3.select('#resetFilters')
@@ -486,19 +392,10 @@ function drawMarkers(data) {
                     dc.filterAll(groupname);
                     dc.redrawAll(groupname);
                 });
+            dc.renderAll(groupname);
 
-            //    Download
-            d3.select('#download')
-                .on('click', function () {
-                    if (d3.select('#download-type input:checked').node().value === 'table') {
-                        var selectedData = schoolName.top(Infinity);
-                    } else {
-                        var selectedData = data
-                    }
-                    var blob = new Blob([d3.csvFormat(selectedData)], { type: "text/csv;charset=utf-8" });
-                    saveAs(blob, 'OMDTZ_schools.csv');
-                });
         });
+    dc.redrawAll()
 
 }
 
