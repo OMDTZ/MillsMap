@@ -2,7 +2,31 @@ const toggleNavbar = () => {
     console.log("toggleNavbar.js loaded");
     // toggle the left-side navbar
     $(document).ready(function () {
+        const districts = JSON.parse($('#districtMapsLinks').text());
+        const regions = districts.map(d => d.Region);
+        const uniqueRegions = [...new Set(regions)];
+        const regionOptions = uniqueRegions.map(r => `<option value="${r}">${r}</option>`);
+        $('#map_region').append(regionOptions);
+        
+        // listen for changes in the region select
+        $('#map_region').on('change', function () {
+            const selectedRegion = $(this).val();
+            const selectedDistricts = districts.filter(d => d.Region === selectedRegion);
+            const districtOptions = selectedDistricts.map(d => `<option value="${d.Map_link}">${d.District}</option>`);
+            $('#map_district').empty();
+            $('#map_district').append(['<option value="">SELECT DISTRICT</option>', ...districtOptions]);
+        });
 
+        // listen for changes in the district select
+        $('#map_district').on('change', function () {
+            const link = $(this).val();
+            console.log('looking at link', link);
+            // update the download link
+            $('#map_download_link').attr('href', link);
+           
+        });
+
+        console.log('looking at unique regions', uniqueRegions);
         // toggle the left-side navbar
         $('.sidebar__button--close').on('click', function () {
             $('.sidebar').addClass('sidebar_width--closed');

@@ -59,6 +59,12 @@ columns = {'Submissions': mill_columns}
 #     'Electricity_school_electricity_access': 'Electricity access',
 # }
 filters = list()
+districtMapsLinks = list()
+with open('app/static/districts_with_map_links.csv', newline='') as file:
+    links = csv.DictReader(file)
+    for row in links:
+        districtMapsLinks.append(row)
+
 with open('app/static/js/filter_graphic_config.csv', newline='') as file:
     form = csv.DictReader(file)
     for row in form:
