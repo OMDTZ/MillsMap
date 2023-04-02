@@ -1,12 +1,19 @@
 
-
+var defaultMaxBounds = L.latLngBounds(
+    [-13.33, 27.583], // latmin, longmin
+    [0.500, 44.450]  // latmax, longmax
+);
 
 const createMap = () => {
     // center of the map
     var center = [-6.23, 34.9];
     // Create the map
     var map = new L.map('mapid', {
-        fullscreenControl: true
+        fullscreenControl: true,
+        maxBounds: defaultMaxBounds,
+        minZoom: 7,
+        maxBoundsViscosity: 1.0
+
     }).setView(center, 6);
 
     map.scrollWheelZoom.disable();
