@@ -17,13 +17,6 @@ const createMap = () => {
     }).setView(center, 6);
 
     map.scrollWheelZoom.disable();
-
-    // Set up the OSM layer
-    // L.tileLayer(
-    //     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    //     attribution: 'Data © <a href="http://osm.org/copyright">OpenStreetMap</a>',
-    //     maxZoom: 18,
-    // }).addTo(map);
  
 var styleUrl = 'https://api.mapbox.com/styles/v1/{username}/{style_id}/tiles/{z}/{x}/{y}?access_token={accessToken}';
 
@@ -42,8 +35,6 @@ L.tileLayer(styleUrl, {
         '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
         'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
 }).addTo(map); 
-    // L.tileLayer.bing(bing_key).addTo(map)
-    //var bing = new L.BingLayer(bing_key);
 
     var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 18,
@@ -71,12 +62,12 @@ L.tileLayer(styleUrl, {
     } //here more layers: https://www.tutorialspoint.com/leafletjs/leafletjs_getting_started.htm
 
     // osmLayer.addTo(map);
-    L.geoJSON(geojsonFeature).addTo(map);
+    //L.geoJSON(geojsonFeature).addTo(map);
 
 
     // L.control.browserPrint({ position: 'topleft', title: 'Print ...' }).addTo(map);
     // add a scale at at your map.
-    var scale = L.control.scale().addTo(map);
+    L.control.scale().addTo(map);
     return map
 }
 
