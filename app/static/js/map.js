@@ -11,7 +11,7 @@ const createMap = () => {
     var map = new L.map('mapid', {
         fullscreenControl: true,
         maxBounds: defaultMaxBounds,
-        minZoom: 7,
+        minZoom: 6,
         maxBoundsViscosity: 1.0
 
     }).setView(center, 6);
@@ -19,11 +19,29 @@ const createMap = () => {
     map.scrollWheelZoom.disable();
 
     // Set up the OSM layer
-    L.tileLayer(
-        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: 'Data © <a href="http://osm.org/copyright">OpenStreetMap</a>',
-        maxZoom: 18,
-    }).addTo(map);
+    // L.tileLayer(
+    //     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    //     attribution: 'Data © <a href="http://osm.org/copyright">OpenStreetMap</a>',
+    //     maxZoom: 18,
+    // }).addTo(map);
+ 
+var styleUrl = 'https://api.mapbox.com/styles/v1/{username}/{style_id}/tiles/{z}/{x}/{y}?access_token={accessToken}';
+
+var accessToken = 'pk.eyJ1IjoiYWxpY28xMSIsImEiOiJja2xhazBneTIwNmFrMm9xcnN2YXMxcHY4In0.43WpCsYZZoQlKlKrBcpqBA';
+var username = 'alico11';
+var styleId = 'ckltbjipi2aeb17t1m9obft0p';
+
+L.tileLayer(styleUrl, {
+    username: username,
+    style_id: styleId,
+    accessToken: accessToken,
+    tileSize: 512,
+    zoomOffset: -1,
+    maxZoom: 18,
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
+}).addTo(map); 
     // L.tileLayer.bing(bing_key).addTo(map)
     //var bing = new L.BingLayer(bing_key);
 
@@ -52,7 +70,7 @@ const createMap = () => {
         "HOTOSM": hotLayer
     } //here more layers: https://www.tutorialspoint.com/leafletjs/leafletjs_getting_started.htm
 
-    osmLayer.addTo(map);
+    // osmLayer.addTo(map);
     L.geoJSON(geojsonFeature).addTo(map);
 
 

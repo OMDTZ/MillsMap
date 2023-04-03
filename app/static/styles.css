@@ -516,6 +516,7 @@ body {
 #howto {
     width: 100%;
     display: flex;
+    justify-content: space-between;
     padding: 0 26px 0 26px;
 
 }
@@ -525,8 +526,16 @@ body {
     font-size: 1em;
 }
 
+.howto_instructions {
+    width: 50%;
+}
+
 #howto img {
     margin-top: 80px;
+}
+
+.howto_image {
+    width: 40%;
 }
 
 .scroll_indicator {
