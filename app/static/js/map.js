@@ -14,7 +14,7 @@ const createMap = () => {
         minZoom: 6,
         maxBoundsViscosity: 1.0
 
-    }).setView(center, 6);
+    }).setView(center, 7);
 
     map.scrollWheelZoom.disable();
  
