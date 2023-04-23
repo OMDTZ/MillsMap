@@ -1,6 +1,7 @@
 key,name,array_column,single_column,piechart,filter,chart
 school_details_Location_Government,The United Republic of Tanzania, 0,0,1,1
 school_details_Location_addr_region,Region,0,0,1,1
+Cooking_utensil_store,School dining hall,0,0,1,1
 school_details_Location_addr_district,District,0,1,1,1
 school_details_Location_addr_ward_shehiya,Ward,0,0,0,1,0
 school_details_Location_addr_subward,Village/Street,0,0,0,1,0
