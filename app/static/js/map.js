@@ -320,6 +320,7 @@ function drawMarkers(data) {
 
 
             for (let index in filters) {
+                const filter = filters[index];
                 let id = '#select' + filters[index]['key']
                 if (filters[index]['array_column'] == 1) {
                     let data_dimension = cross_data.dimension(function (d) {
@@ -330,7 +331,7 @@ function drawMarkers(data) {
                     selectDimension
                         .dimension(data_dimension)
                         .group(data_dimension.group())
-                    // .multiple(true)
+                        .multiple(filter?.multiple_select == 1)
                     // .controlsUseVisibility(true);
                     selectDimension.title(function (subs) {
                         return subs.key;
@@ -344,7 +345,7 @@ function drawMarkers(data) {
                     selectDimension
                         .dimension(data_dimension)
                         .group(data_dimension.group())
-                        .multiple(filters[index]['multiple_select'] == 1)
+                        .multiple(filter?.multiple_select == 1)
                     // .controlsUseVisibility(true);
                     selectDimension.title(function (subs) {
                         return subs.key;
