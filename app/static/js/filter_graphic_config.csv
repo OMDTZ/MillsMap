@@ -15,7 +15,7 @@ Sponsorship_feeding_program_provider_or_sponsor,School Meals Sponsor,1,0,0,1,1
 Food_food_source,Food Source,1,0,0,1,1
 Food_fortified_food,Fortified food provision,0,0,1,1,1
 Food_fortified_type,Type of Fortified food,1,0,0,1,1
-Food_bio_fortified_food,Cooking Biofortified food,0,0,1,1,1
+Food_bio_fortified_food,Biofortified food provision,0,0,1,1,1
 Food_biofortified_type,Biofortified type,1,0,0,1,1
 school_farm_staple_foods_available,Staple foods available,1,0,0,1,1
 school_farm_school_poultry,School poultry,0,0,1,1,1
