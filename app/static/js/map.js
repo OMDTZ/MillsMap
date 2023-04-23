@@ -344,7 +344,7 @@ function drawMarkers(data) {
                     selectDimension
                         .dimension(data_dimension)
                         .group(data_dimension.group())
-                    // .multiple(true)
+                        .multiple(filters[index]['multiple_select'] == 1)
                     // .controlsUseVisibility(true);
                     selectDimension.title(function (subs) {
                         return subs.key;

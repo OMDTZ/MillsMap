@@ -1,6 +1,6 @@
-key,name,array_column,single_column,piechart,filter,chart
+key,name,array_column,single_column,piechart,filter,chart,multiple_select
 school_details_Location_Government,The United Republic of Tanzania, 0,0,1,1
-school_details_Location_addr_region,Region,0,0,1,1
+school_details_Location_addr_region,Region,0,0,1,1,0,1
 school_details_Status_school_services,School inclusivity,0,0,1,1
 Food_food_supplier,Food Purchase,0,0,1,1
 Cooking_utensil_store,Food storage,0,0,1,1
