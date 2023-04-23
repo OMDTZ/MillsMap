@@ -4,7 +4,6 @@ school_details_Location_addr_region,Region,0,0,1,1
 school_details_Location_addr_district,District,0,1,1,1
 school_details_Location_addr_ward_shehiya,Ward,0,0,0,1,0
 school_details_Location_addr_subward,Village/Street,0,0,0,1,0
-Food_purchases_foodtype,Food purchases type,1,0,1,1,1
 school_details_school_type,School type,0,0,1,1,1
 school_details_Status_school_ownership,School ownership,0,0,1,1,1
 school_details_Status_school_accommodation,School Accommodation,0,1,1,1,1
