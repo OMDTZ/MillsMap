@@ -9,7 +9,6 @@ school_details_school_type,School type,0,0,1,1,1
 school_details_Status_school_ownership,School ownership,0,0,1,1,1
 school_details_Status_school_accommodation,School Accommodation,0,1,1,1,1
 feeding_feeding_status,Feeding Status,0,0,1,1,1
-Food_purchases_feeding_program_planning,Feeding Program Planning,0,0,0,1,1
 Food_purchases_meals_timetable,Meals Menu,0,0,0,1,1
 Sponsorship_feeding_program_provider_or_sponsor,School Meals Sponsor,1,0,0,1,1
 Food_food_source,Food Source,1,0,0,1,1
