@@ -12,7 +12,7 @@ feeding_feeding_status,Feeding Status,0,0,1,1,1
 Sponsorship_feeding_program_provider_or_sponsor,School Meals Sponsor,1,0,0,1,1,1
 Food_food_source,Food Source,1,0,0,1,1
 Food_food_supplier,Food Purchase,0,0,1,1
-Cooking_utensil_store,Food storage,0,0,1,1
+Cooking_utensil_store,Food storage,1,0,1,1
 Food_fortified_food,Fortified food provision,0,0,1,1,1
 Food_fortified_type,Type of Fortified food,1,0,0,1,1,1
 Food_bio_fortified_food,Biofortified food provision,0,0,1,1,1
@@ -26,5 +26,5 @@ Nutrition_club_school_nutrition_club,School nutrition club,0,0,1,1,1
 Cooking_cooking_area,Cooking area,1,0,0,1,1
 Cooking_energy,Cooking Energy,1,0,0,1,1,1
 Electricity_school_electricity_access,Electricity access,0,0,1,1,1
-Electricity_school_water_source,Water Access,0,0,1,1
-Food_purchases_meals_timetable,Meals Menu,0,0,0,1,1
+Electricity_school_water_source,Water Access,1,0,1,1
+Food_purchases_meals_timetable,Meals Menu,1,0,0,1,1
