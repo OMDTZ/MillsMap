@@ -17,7 +17,7 @@ Food_fortified_food,Fortified food provision,0,0,1,1,1
 Food_fortified_type,Type of Fortified food,1,0,0,1,1,1
 Food_bio_fortified_food,Biofortified food provision,0,0,1,1,1
 Food_biofortified_type,Type of Biofortified food,1,0,0,1,1,1
-Cooking_utensil_store,School dining hall,0,0,1,1
+Cooking_school_dining_hall,School dining hall,0,0,1,1
 school_farm_staple_foods_available,Staple foods available,1,0,0,1,1,1
 school_farm_school_poultry,Small animal keeping,0,0,1,1,1
 school_farm_school_garden_or_farm,Land for Agriculture,0,1,1,1,1
