@@ -11,7 +11,7 @@ school_details_Status_school_accommodation,School Accommodation,0,1,1,1,1
 feeding_feeding_status,Feeding Status,0,0,1,1,1
 Sponsorship_feeding_program_provider_or_sponsor,School Meals Sponsor,1,0,0,1,1,1
 Food_food_source,Food Source,1,0,0,1,1
-Food_food_supplier,Food Purchase,0,0,1,1
+Food_food_supplier,Food Purchase,1,0,1,1
 Cooking_utensil_store,Food storage,1,0,1,1
 Food_fortified_food,Fortified food provision,0,0,1,1,1
 Food_fortified_type,Type of Fortified food,1,0,0,1,1,1
