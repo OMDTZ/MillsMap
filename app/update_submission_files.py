@@ -16,7 +16,7 @@ def read_local_tables_together(folder):
     form_names = os.listdir(path)
     csv_files = [s for s in form_names if ".csv" in s]
     # Combine the files together
-    form_data = list()
+    form_data = list();
     for form in csv_files:
         start_time = time.perf_counter()
         file = list()
@@ -30,6 +30,9 @@ def read_local_tables_together(folder):
                 row['Food_fortified_type'] = row['Food_fortified_type'].split(' ')
                 row['Food_biofortified_type'] = row['Food_biofortified_type'].split(' ')
                 row['school_farm_staple_foods_available'] = row['school_farm_staple_foods_available'].split(' ')
+                row['Food_food_supplier'] = row['Food_food_supplier'].split(' ')
+                row['Cooking_utensil_store'] = row['Cooking_utensil_store'].split(' ')
+                row['Electricity_school_water_source'] = row['Electricity_school_water_source'].split(' ')
                 row['school_farm_cultivated_vegetables_or_crops'] = row['school_farm_cultivated_vegetables_or_crops'].split(' ')
                 row['Cooking_cooking_area'] = row['Cooking_cooking_area'].split(' ')
                 row['Cooking_energy'] = row['Cooking_energy'].split(' ')
@@ -39,6 +42,10 @@ def read_local_tables_together(folder):
                     row[column] = [item.capitalize().replace('_', ' ') for item in row[column]]
                 for column in single_columns:
                         row[column] = row[column].capitalize().replace('_', ' ')
+                for column in capitalize_columns:
+                        row[column] = row[column].capitalize()
+                for column in trim_whitespaces_columns:
+                        row[column] = row[column].strip()
                 try:
                     # transform the coordinates from a string to a list
                     row['coordinatesDescription_coodinates_coordinates'] = row['coordinatesDescription_coodinates_coordinates'][1:-1].split(',')
@@ -181,43 +188,18 @@ def fetch_odk_submissions(form_index, base_url: str, aut: object, projectId: str
         form_data = [{key: row[key] for key in wanted_columns} for row in flatsubs]
         form_data = [{k: "NA" if not v else v for k, v in row.items()} for row in form_data]
         flatsubs = form_data
-        # if the id column is not __id then change the id column to the right column
-        # if id != '__id':
-        #     for row in flatsubs:
-        #         row['machine_id'] = row['__id']
-        #         row['__id'] = row[id]
-        #         del row[id]
-        # sort the data base on the '__id' column
-        # flatsubs = sorted(flatsubs, key=lambda d: d['__id'])
         tables_data.append(flatsubs)
-    # all_tables = []
-    # Merge the tables together iteratively
-    # mills_iterator = 0
-    # for i in range(0, len(tables_data[1])):
-    #     machines_iterator = i
-    #     # if the ids are the same at the machine and the mill, update the data to include the mills data
-    #     if tables_data[0][mills_iterator]['__id'] == tables_data[1][machines_iterator]['__id']:
-    #         mill_update = tables_data[0][mills_iterator].copy()
-    #         all_tables.append(mill_update)
-    #         machine_update = tables_data[1][machines_iterator].copy()
-    #         all_tables[i].update(machine_update)
-    #     else:
-    #         mills_iterator += 1
-    #         mill_update = tables_data[0][mills_iterator].copy()
-    #         all_tables.append(mill_update)
-    #         machine_update = tables_data[1][machines_iterator].copy()
-    #         all_tables[i].update(machine_update)
-    # merging_tables_time = time.perf_counter()
-    # print(f'Merged the mills and machines in {merging_tables_time - start_time}s')
-    # open a file for writing
     file_name = ''.join([formId, '.csv'])
     dir = 'app/submission_files'
     path = os.path.join(dir, file_name)
+    i = 1
     for row in flatsubs:
         # transform the columns to have capitals and no underscores
         row['school_details_school_type'] = row['school_details_school_type'].replace('_', ' ')
         # row['interviewee_mill_owner'] = row['interviewee_mill_owner'].capitalize()
         # row['interviewee_mill_owner'] = row['interviewee_mill_owner'].replace('_', ' ')
+        row['index'] = i
+        i += 1
 
     with open(path, 'w') as data_file:
         csv_writer = csv.writer(data_file)

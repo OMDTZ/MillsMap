@@ -132,6 +132,13 @@ single_columns = [
     'school_details_Status_school_accommodation',
     'school_farm_school_garden_or_farm'
     ]
+capitalize_columns = [
+    'Food_purchases_feeding_program_planning',
+    'Food_purchases_meals_timetable'
+]
+trim_whitespaces_columns = [
+    'school_details_Location_addr_subward'
+]
 
 # array_columns = ['non_operational', 'commodity_milled', 'energy_source']
 # single_columns = ['Packaging_flour_fortified', 'operational_mill', 'interviewee_mill_owner', 'Packaging_flour_fortified_standard', 'mill_type']

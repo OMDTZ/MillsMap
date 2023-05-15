@@ -1,8 +1,10 @@
 <div id="infographics">
     {% for filter in filters %}
+    {% if filter['chart'] == '1' %}
     <div class="p-3">
         <h4 class="card-title text-center">{{ filter['name'] }}</h4>
         <div id="{{ 'infographic' + filter['key'] }}" class="infographics"></div>
     </div>
+    {% endif %}
     {% endfor %}
 </div>
