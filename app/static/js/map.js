@@ -284,10 +284,10 @@ function drawMarkers(data) {
   fetch("static/js/filter_graphic_config.csv")
     .then((res) => res.text())
     .then((csv) => {
-      console.log("jahahahahhaha");
-      console.log("csv", csv);
+     // console.log("jahahahahhaha");
+      //console.log("csv", csv);
       var lines = csv.split("\n");
-      console.log("lines", lines);
+      //console.log("lines", lines);
 
       var filters = [];
 
@@ -307,7 +307,7 @@ function drawMarkers(data) {
 
         filters.push(obj);
       }
-      console.log("filters", filters);
+      //console.log("filters", filters);
 
       /*
             
@@ -380,7 +380,7 @@ function drawMarkers(data) {
               ? d[filters[index]["key"]]
               : "No answer";
           }, true);
-          console.log(filters[index]["name"]);
+          //console.log(filters[index]["name"]);
           let selectDimension = new dc.SelectMenu(id, groupname);
           selectDimension
             .dimension(data_dimension)
@@ -396,7 +396,7 @@ function drawMarkers(data) {
               ? d[filters[index]["key"]]
               : "No answer";
           });
-          console.log(filters[index]["name"]);
+         // console.log(filters[index]["name"]);
           let selectDimension = new dc.SelectMenu(id, groupname);
           selectDimension
             .dimension(data_dimension)
@@ -464,7 +464,7 @@ function drawMarkers(data) {
 
       //  Reset the filters
       d3.select("#resetFilters").on("click", function () {
-        console.log("reseted filters");
+        //console.log("reseted filters");
         dc.filterAll(groupname);
         dc.redrawAll(groupname);
       });

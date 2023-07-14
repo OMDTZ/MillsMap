@@ -21,6 +21,6 @@ createMapIcons(map);
 
 function searchSchool() {
   var schoolNameField = document.getElementById("schoolNameField");
-  console.log("The input value has changed. The new value is: " + schoolNameField.value);
+ // console.log("The input value has changed. The new value is: " + schoolNameField.value);
 }
 
