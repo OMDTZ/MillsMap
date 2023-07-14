@@ -21,7 +21,8 @@ const createMap = () => {
       map.scrollWheelZoom.enable();
     }
   });
-  // map.scrollWheelZoom.disable();
+
+  //map.scrollWheelZoom.disable();
 
   var styleUrl =
     "https://api.mapbox.com/styles/v1/{username}/{style_id}/tiles/{z}/{x}/{y}?access_token={accessToken}";
@@ -31,18 +32,18 @@ const createMap = () => {
   var username = "alico11";
   var styleId = "ckltbjipi2aeb17t1m9obft0p";
 
-  L.tileLayer(styleUrl, {
-    username: username,
-    style_id: styleId,
-    accessToken: accessToken,
-    tileSize: 512,
-    zoomOffset: -1,
-    maxZoom: 18,
-    attribution:
-      'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-      '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-      'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-  }).addTo(map);
+  // L.tileLayer(styleUrl, {
+  //   username: username,
+  //   style_id: styleId,
+  //   accessToken: accessToken,
+  //   tileSize: 512,
+  //   zoomOffset: -1,
+  //   maxZoom: 18,
+  //   attribution:
+  //     'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+  //     '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+  //     'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+  // }).addTo(map);
 
   var osmLayer = L.tileLayer(
     "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
@@ -86,8 +87,15 @@ const createMap = () => {
     Google: googleSat,
   }; //here more layers: https://www.tutorialspoint.com/leafletjs/leafletjs_getting_started.htm
   L.control.layers(baseMaps).addTo(map);
-  // osmLayer.addTo(map);
-  //L.geoJSON(geojsonFeature).addTo(map);
+  osmLayer.addTo(map);
+  var natitional_boundary = L.geoJSON(geojsonFeature).addTo(map);
+  natitional_boundary.setStyle({ fillColor: "white",color:'rgba(0, 0, 0, 0.3)',opacity:0.8 });
+  
+  var regions_boundary = L.geoJSON(geo_tz_regions).addTo(map);
+  regions_boundary.setStyle({ fillColor: "white",color:'rgba(0, 0, 0, 0.3)'});
+
+  var waterbodies = L.geoJSON(Tanzania_water_bodies).addTo(map);
+  waterbodies.setStyle({ fillColor: "white",color:'rgba(0, 119, 179, 0.8)'});
 
   // L.control.browserPrint({ position: 'topleft', title: 'Print ...' }).addTo(map);
   // add a scale at at your map.
@@ -217,7 +225,7 @@ function drawMarkers(data) {
       d.school_details_Status_school_registration_number
     );
   });
-  
+
   new dc.TextFilterWidget("#search", groupname).dimension(schoolName);
 
   var mapChart = dc_leaflet.markerChart("#mapid", groupname);
