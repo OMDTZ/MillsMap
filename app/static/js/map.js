@@ -88,13 +88,13 @@ const createMap = () => {
   }; //here more layers: https://www.tutorialspoint.com/leafletjs/leafletjs_getting_started.htm
   L.control.layers(baseMaps).addTo(map);
   osmLayer.addTo(map);
-  var natitional_boundary = L.geoJSON(geojsonFeature).addTo(map);
-  natitional_boundary.setStyle({ fillColor: "white",color:'rgba(0, 0, 0, 0.3)',opacity:0.8 });
+  var natitional_boundary = L.geoJSON(geojsonFeature,{ weight: 1 }).addTo(map);
+  natitional_boundary.setStyle({ fillColor: "white",color:'rgba(0, 0, 0, 0.4)'});
   
-  var regions_boundary = L.geoJSON(geo_tz_regions).addTo(map);
+  var regions_boundary = L.geoJSON(geo_tz_regions,{ weight: 1 }).addTo(map);
   regions_boundary.setStyle({ fillColor: "white",color:'rgba(0, 0, 0, 0.3)'});
 
-  var waterbodies = L.geoJSON(Tanzania_water_bodies).addTo(map);
+  var waterbodies = L.geoJSON(Tanzania_water_bodies,{ weight: 1 }).addTo(map);
   waterbodies.setStyle({ fillColor: "white",color:'rgba(0, 119, 179, 0.8)'});
 
   // L.control.browserPrint({ position: 'topleft', title: 'Print ...' }).addTo(map);
