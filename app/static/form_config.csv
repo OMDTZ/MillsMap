@@ -1,0 +1,2 @@
+projectId,formId,activityStatus,featureType,lastChecked,lastNumberRecordsMills,lastNumberRecordsMachines
+3,Nationwide School Mapping V3,1,point,"time.struct_time(tm_year=2023, tm_mon=7, tm_mday=16, tm_hour=8, tm_min=29, tm_sec=34, tm_wday=6, tm_yday=197, tm_isdst=0)",4921,1

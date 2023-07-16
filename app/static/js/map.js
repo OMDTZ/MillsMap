@@ -88,14 +88,42 @@ const createMap = () => {
   }; //here more layers: https://www.tutorialspoint.com/leafletjs/leafletjs_getting_started.htm
   L.control.layers(baseMaps).addTo(map);
   osmLayer.addTo(map);
-  var natitional_boundary = L.geoJSON(geojsonFeature,{ weight: 1 }).addTo(map);
-  natitional_boundary.setStyle({ fillColor: "white",color:'rgba(0, 0, 0, 0.4)'});
-  
-  var regions_boundary = L.geoJSON(geo_tz_regions,{ weight: 1 }).addTo(map);
-  regions_boundary.setStyle({ fillColor: "white",color:'rgba(0, 0, 0, 0.3)'});
+  var natitional_boundary = L.geoJSON(geojsonFeature, { weight: 1 }).addTo(map);
+  natitional_boundary.setStyle({
+    fillColor: "white",
+    color: "rgba(0, 0, 0, 0.4)",
+    fillOpacity: 0,
+  });
 
-  var waterbodies = L.geoJSON(Tanzania_water_bodies,{ weight: 1 }).addTo(map);
-  waterbodies.setStyle({ fillColor: "white",color:'rgba(0, 119, 179, 0.8)'});
+  // var regions_boundary = L.geoJSON(geo_tz_regions, {
+  //   weight: 1,
+  // }).addTo(map);
+  // regions_boundary.setStyle({
+  //   fillColor: "white",
+  //   color: "rgba(0, 0, 0, 0.3)",
+  // });
+
+  var regions_boundary = L.geoJson(geo_tz_regions, {
+    weight: 1,
+    onEachFeature: function (feature, layer) {
+      console.log(feature.properties.Region);
+      layer
+        .bindTooltip(
+          `<span id="region">Region</span> : ${feature.properties.Region}\n<span id="school">Schools</span> : ${feature.properties.school}`,
+          { permanent: true, direction: "center" }
+        )
+        .openTooltip();
+    },
+  }).addTo(map);
+
+  regions_boundary.setStyle({
+    fillColor: "white",
+    color: "rgba(0, 0, 0, 0.3)",
+    fillOpacity: 0,
+  });
+
+  var waterbodies = L.geoJSON(Tanzania_water_bodies, { weight: 1 }).addTo(map);
+  waterbodies.setStyle({ fillColor: "white", color: "rgba(0, 119, 179, 0.8)" });
 
   // L.control.browserPrint({ position: 'topleft', title: 'Print ...' }).addTo(map);
   // add a scale at at your map.
@@ -284,7 +312,7 @@ function drawMarkers(data) {
   fetch("static/js/filter_graphic_config.csv")
     .then((res) => res.text())
     .then((csv) => {
-     // console.log("jahahahahhaha");
+      // console.log("jahahahahhaha");
       //console.log("csv", csv);
       var lines = csv.split("\n");
       //console.log("lines", lines);
@@ -396,7 +424,7 @@ function drawMarkers(data) {
               ? d[filters[index]["key"]]
               : "No answer";
           });
-         // console.log(filters[index]["name"]);
+          // console.log(filters[index]["name"]);
           let selectDimension = new dc.SelectMenu(id, groupname);
           selectDimension
             .dimension(data_dimension)
