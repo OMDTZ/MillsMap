@@ -83,7 +83,6 @@ const createMap = () => {
   );
   var baseMaps = {
     OpenStreetMap: osmLayer,
-    HOTOSM: hotLayer,
     Google: googleSat,
   }; //here more layers: https://www.tutorialspoint.com/leafletjs/leafletjs_getting_started.htm
   L.control.layers(baseMaps).addTo(map);
@@ -107,9 +106,10 @@ const createMap = () => {
     weight: 1,
     onEachFeature: function (feature, layer) {
       console.log(feature.properties.Region);
+      layer.bringToBack()
       layer
         .bindTooltip(
-          `<span id="region">Region</span> : ${feature.properties.Region}\n<span id="school">Schools</span> : ${feature.properties.school}`,
+          `<span id="region">${feature.properties.Region}</span>\n<span id="school">Schools</span> : <span id="school_value">${feature.properties.school}</span>`,
           { permanent: true, direction: "center" }
         )
         .openTooltip();

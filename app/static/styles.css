@@ -9,8 +9,8 @@
 .leaflet-tooltip {
     position: absolute;
     padding: 6px;
-    background-color:rgb(255,255,255,0.7);
-    border: 1px solid #fff;
+    background-color:rgb(255,255,255,0);
+    border: 1px solid rgb(255,255,255,0);
     border-radius: 3px;
     color: #222;
     white-space: nowrap;
@@ -19,15 +19,22 @@
     -ms-user-select: none;
     user-select: none;
     pointer-events: none;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.0);
     white-space: pre-wrap;
     width: 150px;
 }
 #region{
+    font-size: 10px;
     color:#09497a;
     font-weight: bold;
 }
+#school_value{
+    color:#000;
+    font-size: 10px;
+    font-weight: bold;
+}
 #school{
+    font-size: 10px;
     color:orange;
     font-weight: bold;
 }
